@@ -12,7 +12,7 @@ export function Hero() {
   }, [])
 
   return (
-    <AuroraBackground className="min-h-screen flex items-center justify-center" id="home">
+    <AuroraBackground className="min-h-screen flex items-center justify-center pt-16 md:pt-20" id="home">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center z-10 relative">
         {/* Main Heading with Gradient */}
         <h1
@@ -20,7 +20,7 @@ export function Hero() {
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <span className="block bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">
+          <span className="block bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent mt-5">
             Secure Your Digital Future
           </span>
           <span className="block text-foreground mt-2">With Advanced Cybersecurity Solutions</span>
