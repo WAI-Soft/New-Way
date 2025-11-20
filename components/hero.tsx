@@ -12,7 +12,7 @@ export function Hero() {
   }, [])
 
   return (
-    <AuroraBackground className="min-h-screen flex items-center justify-center pt-16 md:pt-20" id="home">
+    <AuroraBackground className="min-h-screen flex items-center justify-center pt-20 md:pt-24" id="home">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center z-10 relative">
         {/* Main Heading with Gradient */}
         <h1

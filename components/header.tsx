@@ -31,16 +31,16 @@ export function Header() {
           <Image 
             src="/logo.png" 
             alt="New Way Solutions" 
-            width={150}
-            height={50}
-            className="h-10 w-auto sm:h-12"
+            width={200}
+            height={70}
+            className="h-14 w-auto sm:h-16"
             priority
           />
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8 flex-1 justify-end ml-16">
-          <div className="flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2">
+          <div className="flex items-center gap-8 absolute left-[55%] transform -translate-x-1/2">
             <Link 
               href="/" 
               className={`text-lg font-medium transition-all px-4 py-2 rounded-lg ${
