@@ -6,7 +6,6 @@ import { PageHero } from '@/components/page-hero'
 import { ClientGrid } from '@/components/clients/client-grid'
 import { IndustriesSection } from '@/components/clients/industries-section'
 import { TestimonialsSection } from '@/components/clients/testimonials-section'
-import { SuccessMetrics } from '@/components/clients/success-metrics'
 
 export const metadata: Metadata = {
   title: 'Our Clients | New Way Solutions',
@@ -26,7 +25,6 @@ export default function ClientsPage() {
       <ClientGrid />
       <IndustriesSection />
       <TestimonialsSection />
-      <SuccessMetrics />
       
       <Footer />
       <ScrollToTop />
