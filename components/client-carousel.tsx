@@ -151,30 +151,6 @@ export function ClientCarousel() {
             </div>
           </div>
         </div>
-
-        {/* Fallback for browsers without 3D support */}
-        <div className="lg:hidden mt-12 grid grid-cols-2 gap-6">
-          {clients.map((client, idx) => (
-            <div
-              key={idx}
-              className={`p-6 rounded-xl border transition-all duration-300 cursor-pointer flex items-center justify-center ${
-                idx === activeIndex
-                  ? 'border-primary bg-white shadow-lg'
-                  : 'border-border/40 bg-white/80 opacity-60'
-              }`}
-              onClick={() => {
-                setActiveIndex(idx)
-                // Keep auto-play running
-              }}
-            >
-              <img
-                src={client.logo || "/placeholder.svg"}
-                alt={client.name}
-                className="w-full h-20 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-              />
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   )

@@ -4,7 +4,7 @@ import { Footer } from '@/components/footer'
 import { ScrollToTop } from '@/components/scroll-to-top'
 import { PageHero } from '@/components/page-hero'
 import { CompanyOverview } from '@/components/about/company-overview'
-import { StatsSection } from '@/components/about/stats-section'
+import { FAQsSection } from '@/components/about/faqs-section'
 import { WorkProcess } from '@/components/work-process'
 import { MissionValues } from '@/components/about/mission-values'
 
@@ -24,9 +24,9 @@ export default function AboutPage() {
       />
       
       <CompanyOverview />
-      <StatsSection />
-      <WorkProcess />
       <MissionValues />
+      <WorkProcess />
+      <FAQsSection />
       
       <Footer />
       <ScrollToTop />

@@ -3,92 +3,171 @@
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
 import { Target, Eye, Heart } from 'lucide-react'
 
-const values = [
-  {
-    icon: Target,
-    title: 'Mission',
-    description: 'To empower organizations with cutting-edge cybersecurity and IT solutions that protect their digital assets, ensure compliance, and enable business growth in an increasingly connected world.',
-    gradient: 'from-[#50af9b] to-[#3b9482]'
-  },
-  {
-    icon: Eye,
-    title: 'Vision',
-    description: 'To be the most trusted partner in enterprise security, recognized globally for our innovation, expertise, and unwavering commitment to protecting organizations from evolving cyber threats.',
-    gradient: 'from-[#60c9b3] to-[#50af9b]'
-  },
-  {
-    icon: Heart,
-    title: 'Values',
-    description: 'Integrity, Excellence, Innovation, and Client Success. We believe in building lasting relationships through transparency, delivering exceptional results, and continuously evolving to meet the challenges of tomorrow.',
-    gradient: 'from-[#70d9c3] to-[#60c9b3]'
-  }
-]
+const mission = {
+  title: 'Mission',
+  description: 'To empower organizations with cutting-edge cybersecurity and IT solutions that protect their digital assets, ensure compliance, and enable business growth in an increasingly connected world.',
+  icon: Target,
+  gradient: 'from-primary via-cyan-400 to-primary',
+  bgGradient: 'from-primary/5 via-cyan-400/5 to-primary/5'
+}
+
+const vision = {
+  title: 'Vision',
+  description: 'To be the most trusted partner in enterprise security, recognized globally for our innovation, expertise, and unwavering commitment to protecting organizations from evolving cyber threats.',
+  icon: Eye,
+  gradient: 'from-cyan-500 via-teal-400 to-cyan-500',
+  bgGradient: 'from-cyan-500/5 via-teal-400/5 to-cyan-500/5'
+}
+
+const values = {
+  title: 'Values',
+  description: 'Integrity, Excellence, Innovation, and Client Success. We believe in building lasting relationships through transparency, delivering exceptional results, and continuously evolving to meet the challenges of tomorrow.',
+  icon: Heart,
+  gradient: 'from-teal-500 via-cyan-500 to-primary',
+  bgGradient: 'from-teal-500/5 via-cyan-500/5 to-primary/5'
+}
 
 export function MissionValues() {
   const { elementRef, isVisible } = useScrollAnimation()
 
   return (
-    <section className="py-24 px-4 sm:px-6 lg:px-8" ref={elementRef}>
-      <div className="mx-auto max-w-7xl">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background via-card/20 to-background relative overflow-hidden" ref={elementRef}>
+      {/* Background decorations */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/3 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-500/3 rounded-full blur-3xl" />
+      </div>
+
+      <div className="mx-auto max-w-7xl relative">
         {/* Section header */}
         <div
-          className={`text-center mb-16 transition-all duration-1000 ${
+          className={`text-center mb-12 transition-all duration-1000 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3">
             What <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">Drives Us</span>
           </h2>
-          <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            Our core principles guide everything we do
+          <p className="text-base text-foreground/60 max-w-2xl mx-auto">
+            Our foundation built on purpose, vision, and unwavering principles
           </p>
         </div>
 
-        {/* Values grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {values.map((value, index) => {
-            const Icon = value.icon
+        {/* Custom Layout */}
+        <div className="relative max-w-5xl mx-auto">
+          {/* Vertical line with gradient and decorative elements */}
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0" style={{ transform: 'translateX(-50%)' }}>
+            {/* Main gradient line */}
+            <div className="absolute inset-0 w-1 bg-gradient-to-b from-primary via-cyan-400 to-primary opacity-30" />
             
-            return (
-              <div
-                key={index}
-                className={`transition-all duration-1000`}
-                style={{
-                  transitionDelay: `${index * 100}ms`,
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? 'translateY(0)' : 'translateY(30px)'
-                }}
-              >
-                <div className="relative group h-full">
-                  {/* Gradient border effect */}
-                  <div className={`absolute -inset-0.5 bg-gradient-to-r ${value.gradient} rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity blur`} />
-                  
-                  {/* Card content */}
-                  <div className="relative bg-card border border-border/40 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 h-full flex flex-col">
-                    {/* Icon */}
-                    <div className="mb-6">
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${value.gradient} flex items-center justify-center`}>
-                        <Icon className="w-7 h-7 text-white" />
-                      </div>
+            {/* Glowing effect */}
+            <div className="absolute inset-0 w-2 bg-gradient-to-b from-primary/20 via-cyan-400/20 to-primary/20 blur-sm" />
+            
+            {/* Decorative dots */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-r from-primary to-cyan-400 shadow-lg shadow-primary/50" />
+            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-r from-cyan-400 to-primary shadow-lg shadow-cyan-400/50" />
+            <div className="absolute top-2/3 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-r from-primary to-cyan-400 shadow-lg shadow-primary/50" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-primary shadow-lg shadow-cyan-400/50" />
+          </div>
+
+          {/* Cascading layout */}
+          <div className="flex flex-col lg:flex-row lg:flex-wrap gap-6 relative">
+            {/* Mission - Left */}
+            <div
+              className={`lg:w-[calc(50%-1.5rem)] transition-all duration-1000 delay-100 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`}
+            >
+              <div className="group relative">
+                {/* Gradient glow effect */}
+                <div className={`absolute -inset-0.5 bg-gradient-to-r ${mission.gradient} rounded-xl opacity-10 group-hover:opacity-20 blur-lg transition-all duration-500`} />
+                
+                {/* Card */}
+                <div className={`relative border border-foreground/10 bg-gradient-to-br ${mission.bgGradient} backdrop-blur-sm rounded-xl p-6 lg:p-7 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] hover:border-primary/30`}>
+                  {/* Icon */}
+                  <div className="flex justify-center mb-4">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${mission.gradient} flex items-center justify-center shadow-md transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                      <mission.icon className="w-6 h-6 text-white" />
                     </div>
-
-                    {/* Title */}
-                    <h3 className="text-2xl font-bold mb-4 text-foreground">
-                      {value.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-foreground/60 leading-relaxed flex-grow">
-                      {value.description}
-                    </p>
-
-                    {/* Decorative accent */}
-                    <div className={`mt-6 h-1 w-16 bg-gradient-to-r ${value.gradient} rounded-full`} />
                   </div>
+                  
+                  <h3 className={`text-2xl sm:text-3xl font-bold mb-4 text-center bg-gradient-to-r ${mission.gradient} bg-clip-text text-transparent`}>
+                    {mission.title}
+                  </h3>
+                  <p className="text-foreground/70 text-center leading-relaxed text-sm">
+                    {mission.description}
+                  </p>
+                  
+                  {/* Bottom accent */}
+                  <div className={`mt-4 h-0.5 w-16 bg-gradient-to-r ${mission.gradient} rounded-full mx-auto`} />
                 </div>
               </div>
-            )
-          })}
+            </div>
+
+            {/* Vision - Right (starts from middle of Mission) */}
+            <div
+              className={`lg:w-[calc(50%-1.5rem)] lg:ml-auto lg:mt-72 transition-all duration-1000 delay-200 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+              }`}
+            >
+              <div className="group relative">
+                {/* Gradient glow effect */}
+                <div className={`absolute -inset-0.5 bg-gradient-to-r ${vision.gradient} rounded-xl opacity-10 group-hover:opacity-20 blur-lg transition-all duration-500`} />
+                
+                {/* Card */}
+                <div className={`relative border border-foreground/10 bg-gradient-to-br ${vision.bgGradient} backdrop-blur-sm rounded-xl p-6 lg:p-7 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] hover:border-cyan-500/30`}>
+                  {/* Icon */}
+                  <div className="flex justify-center mb-4">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${vision.gradient} flex items-center justify-center shadow-md transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                      <vision.icon className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  
+                  <h3 className={`text-2xl sm:text-3xl font-bold mb-4 text-center bg-gradient-to-r ${vision.gradient} bg-clip-text text-transparent`}>
+                    {vision.title}
+                  </h3>
+                  <p className="text-foreground/70 text-center leading-relaxed text-sm">
+                    {vision.description}
+                  </p>
+                  
+                  {/* Bottom accent */}
+                  <div className={`mt-4 h-0.5 w-16 bg-gradient-to-r ${vision.gradient} rounded-full mx-auto`} />
+                </div>
+              </div>
+            </div>
+
+            {/* Values - Left (starts from middle of Vision) */}
+            <div
+              className={`lg:w-[calc(50%-1.5rem)] lg:mt-0 transition-all duration-1000 delay-300 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`}
+            >
+              <div className="group relative">
+                {/* Gradient glow effect */}
+                <div className={`absolute -inset-0.5 bg-gradient-to-r ${values.gradient} rounded-xl opacity-10 group-hover:opacity-20 blur-lg transition-all duration-500`} />
+                
+                {/* Card */}
+                <div className={`relative border border-foreground/10 bg-gradient-to-br ${values.bgGradient} backdrop-blur-sm rounded-xl p-6 lg:p-7 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] hover:border-teal-500/30`}>
+                  {/* Icon */}
+                  <div className="flex justify-center mb-4">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${values.gradient} flex items-center justify-center shadow-md transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}>
+                      <values.icon className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+                  
+                  <h3 className={`text-2xl sm:text-3xl font-bold mb-4 text-center bg-gradient-to-r ${values.gradient} bg-clip-text text-transparent`}>
+                    {values.title}
+                  </h3>
+                  <p className="text-foreground/70 text-center leading-relaxed text-sm">
+                    {values.description}
+                  </p>
+                  
+                  {/* Bottom accent */}
+                  <div className={`mt-4 h-0.5 w-16 bg-gradient-to-r ${values.gradient} rounded-full mx-auto`} />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

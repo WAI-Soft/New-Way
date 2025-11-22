@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Home, Briefcase, Info, Users, Handshake, Mail } from 'lucide-react'
 import { LanguageToggle } from '@/components/language-toggle'
 
 export function Header() {
@@ -120,69 +120,75 @@ export function Header() {
             <div className="flex flex-col gap-4">
               <Link 
                 href="/" 
-                className={`text-sm transition-all px-4 py-2 rounded-lg ${
+                className={`text-sm transition-all px-4 py-2 rounded-lg flex items-center gap-3 ${
                   activePage === 'home' 
                     ? 'text-primary border-2 border-primary/50 bg-primary/10 backdrop-blur-sm' 
                     : 'text-foreground/70 hover:text-primary'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                Home
+                <Home size={18} />
+                <span>Home</span>
               </Link>
               <Link 
                 href="/services" 
-                className={`text-sm transition-all px-4 py-2 rounded-lg ${
+                className={`text-sm transition-all px-4 py-2 rounded-lg flex items-center gap-3 ${
                   activePage === 'services' 
                     ? 'text-primary border-2 border-primary/50 bg-primary/10 backdrop-blur-sm' 
                     : 'text-foreground/70 hover:text-primary'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                Services
+                <Briefcase size={18} />
+                <span>Services</span>
               </Link>
               <Link 
                 href="/about" 
-                className={`text-sm transition-all px-4 py-2 rounded-lg ${
+                className={`text-sm transition-all px-4 py-2 rounded-lg flex items-center gap-3 ${
                   activePage === 'about' 
                     ? 'text-primary border-2 border-primary/50 bg-primary/10 backdrop-blur-sm' 
                     : 'text-foreground/70 hover:text-primary'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                About
+                <Info size={18} />
+                <span>About</span>
               </Link>
               <Link 
                 href="/clients" 
-                className={`text-sm transition-all px-4 py-2 rounded-lg ${
+                className={`text-sm transition-all px-4 py-2 rounded-lg flex items-center gap-3 ${
                   activePage === 'clients' 
                     ? 'text-primary border-2 border-primary/50 bg-primary/10 backdrop-blur-sm' 
                     : 'text-foreground/70 hover:text-primary'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                Clients
+                <Users size={18} />
+                <span>Clients</span>
               </Link>
               <Link 
                 href="/partners" 
-                className={`text-sm transition-all px-4 py-2 rounded-lg ${
+                className={`text-sm transition-all px-4 py-2 rounded-lg flex items-center gap-3 ${
                   activePage === 'partners' 
                     ? 'text-primary border-2 border-primary/50 bg-primary/10 backdrop-blur-sm' 
                     : 'text-foreground/70 hover:text-primary'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                Partners
+                <Handshake size={18} />
+                <span>Partners</span>
               </Link>
               <Link 
                 href="/contact" 
-                className={`text-sm transition-all px-4 py-2 rounded-lg ${
+                className={`text-sm transition-all px-4 py-2 rounded-lg flex items-center gap-3 ${
                   activePage === 'contact' 
                     ? 'text-primary border-2 border-primary/50 bg-primary/10 backdrop-blur-sm' 
                     : 'text-foreground/70 hover:text-primary'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
-                Contact
+                <Mail size={18} />
+                <span>Contact</span>
               </Link>
               <div className="flex justify-center pt-2">
                 <LanguageToggle />
