@@ -95,7 +95,7 @@ export function ClientCarousel() {
   const handleCardClick = (index: number) => {
     setActiveIndex(index)
     setRotation(index * anglePerCard)
-    setIsAutoPlay(false) // Stop auto-play when user interacts
+    // Keep auto-play running even after user interaction
   }
 
   return (
@@ -112,25 +112,29 @@ export function ClientCarousel() {
         </div>
 
         {/* 3D Carousel Container */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12">
+        <div className="flex items-center justify-center min-h-[400px]">
           {/* Carousel */}
-          <div className="relative w-full lg:w-2/3 h-48 sm:h-56 perspective">
-            <div className="relative w-full h-full" style={{ perspective: '1000px' }}>
+          <div className="relative w-full max-w-md h-64 sm:h-72 mx-auto">
+            <div className="relative w-full h-full flex items-center justify-center" style={{ perspective: '1200px' }}>
               {clients.map((client, idx) => {
                 const angle = (idx * 360) / clients.length
                 const isActive = idx === activeIndex
-                const distance = 200
+                const distance = 250
 
                 return (
                   <div
                     key={idx}
                     onClick={() => handleCardClick(idx)}
-                    className={`absolute w-full max-w-xs h-full cursor-pointer transition-all duration-700 left-1/2 -translate-x-1/2 ${
+                    className={`absolute w-80 h-48 cursor-pointer transition-all duration-700 ${
                       isActive ? 'z-10 scale-100' : 'z-0 scale-75 opacity-50 hover:opacity-75'
                     }`}
                     style={{
-                      transform: `translateX(-50%) rotateY(${angle - rotation}deg) translateZ(${distance}px)`,
+                      transform: `rotateY(${angle - rotation}deg) translateZ(${distance}px)`,
                       transformStyle: 'preserve-3d',
+                      left: '50%',
+                      top: '50%',
+                      marginLeft: '-160px',
+                      marginTop: '-96px',
                     }}
                   >
                     <div className="h-full p-8 rounded-xl border border-border/40 bg-white shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center">
@@ -144,41 +148,6 @@ export function ClientCarousel() {
                   </div>
                 )
               })}
-            </div>
-          </div>
-
-          {/* Selector Dots - Divided into 2 Groups Side by Side */}
-          <div className="flex flex-row gap-6 justify-center">
-            {/* First Group (Clients 1-8) */}
-            <div className="flex flex-col gap-3">
-              {clients.slice(0, 8).map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleCardClick(idx)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    idx === activeIndex
-                      ? 'bg-primary h-8 w-3'
-                      : 'bg-foreground/30 hover:bg-foreground/50'
-                  }`}
-                  aria-label={`Select client ${idx + 1}`}
-                />
-              ))}
-            </div>
-            
-            {/* Second Group (Clients 9-16) */}
-            <div className="flex flex-col gap-3">
-              {clients.slice(8, 16).map((_, idx) => (
-                <button
-                  key={idx + 8}
-                  onClick={() => handleCardClick(idx + 8)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    idx + 8 === activeIndex
-                      ? 'bg-primary h-8 w-3'
-                      : 'bg-foreground/30 hover:bg-foreground/50'
-                  }`}
-                  aria-label={`Select client ${idx + 9}`}
-                />
-              ))}
             </div>
           </div>
         </div>
@@ -195,7 +164,7 @@ export function ClientCarousel() {
               }`}
               onClick={() => {
                 setActiveIndex(idx)
-                setIsAutoPlay(false)
+                // Keep auto-play running
               }}
             >
               <img
