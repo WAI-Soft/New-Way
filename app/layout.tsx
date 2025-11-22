@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'New Way Solutions - Transform Your Business',
+  title: 'New-Way-Solutions',
   description: 'Enterprise solutions for ambitious businesses ready to lead their industries',
   generator: 'v0.app',
   icons: {

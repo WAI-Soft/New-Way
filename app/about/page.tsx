@@ -9,7 +9,7 @@ import { WorkProcess } from '@/components/work-process'
 import { MissionValues } from '@/components/about/mission-values'
 
 export const metadata: Metadata = {
-  title: 'About Us | New Way Solutions',
+  title: 'About Us | New-Way-Solutions',
   description: 'Learn about New Way Solutions - our mission, values, and commitment to delivering innovative cybersecurity and IT solutions.',
 }
 

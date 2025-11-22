@@ -1,9 +1,11 @@
 'use client'
 
+import Link from 'next/link'
 import { LucideIcon } from 'lucide-react'
 import { ArrowRight } from 'lucide-react'
 
 interface ServiceCardProps {
+  slug: string
   icon: LucideIcon
   title: string
   description: string
@@ -11,19 +13,19 @@ interface ServiceCardProps {
   gradient: string
 }
 
-export function ServiceCard({ icon: Icon, title, description, features, gradient }: ServiceCardProps) {
+export function ServiceCard({ slug, icon: Icon, title, description, features, gradient }: ServiceCardProps) {
   return (
-    <div className="group relative w-full h-full">
+    <Link href={`/services/${slug}`} className="group relative w-full h-full block">
       {/* Gradient Border Effect */}
       <div
         className={`absolute -inset-0.5 bg-gradient-to-r ${gradient} rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity blur`}
       />
 
       {/* Card Content */}
-      <div className="relative bg-card border border-border/40 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 h-full flex flex-col">
+      <div className="relative bg-card border border-border/40 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 h-full flex flex-col cursor-pointer">
         {/* Icon */}
         <div
-          className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r ${gradient} mb-6`}
+          className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r ${gradient} mb-6 group-hover:scale-110 transition-transform duration-300`}
         >
           <Icon className="w-7 h-7 text-white" strokeWidth={2} />
         </div>
@@ -64,6 +66,6 @@ export function ServiceCard({ icon: Icon, title, description, features, gradient
           <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
-    </div>
+    </Link>
   )
 }

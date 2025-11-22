@@ -9,7 +9,7 @@ import { Footer } from '@/components/footer'
 import { ScrollToTop } from '@/components/scroll-to-top'
 
 export const metadata = {
-  title: 'New Way Solutions - Transform Your Business',
+  title: 'New-Way-Solutions',
   description: 'Enterprise solutions that deliver exceptional results',
 }
 

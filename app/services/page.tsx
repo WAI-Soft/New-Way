@@ -8,7 +8,7 @@ import { ServicesCTA } from '@/components/services/services-cta'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Our Security Solutions - New Way Solutions',
+  title: 'Our Security Solutions | New-Way-Solutions',
   description: 'Comprehensive security solutions including IAM, SSO, PAM, Log Management, MFA, and Cybersecurity services to protect your enterprise.',
 }
 

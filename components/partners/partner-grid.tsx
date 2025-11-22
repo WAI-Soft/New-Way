@@ -72,7 +72,7 @@ export function PartnerGrid() {
                     transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)'
                   }}
                 >
-                  <div className="bg-white rounded-3xl p-8 h-32 flex items-center justify-center border-2 border-foreground/20 hover:border-4 hover:border-primary hover:scale-110 hover:shadow-[0_20px_60px_-15px] hover:shadow-primary/40 transition-all duration-500 group hover:rotate-1 cursor-pointer">
+                  <div className="bg-white rounded-3xl p-6 h-40 flex items-center justify-center border-2 border-foreground/20 hover:border-4 hover:border-primary hover:scale-110 hover:shadow-[0_20px_60px_-15px] hover:shadow-primary/40 transition-all duration-500 group hover:rotate-1 cursor-pointer">
                     <div className="relative w-full h-full group-hover:scale-105 transition-transform duration-500">
                       <Image
                         src={partner.logo}
@@ -102,7 +102,7 @@ export function PartnerGrid() {
                     transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)'
                   }}
                 >
-                  <div className="bg-white rounded-3xl p-8 h-32 flex items-center justify-center border-2 border-foreground/20 hover:border-4 hover:border-primary hover:scale-110 hover:shadow-[0_20px_60px_-15px] hover:shadow-primary/40 transition-all duration-500 group hover:-rotate-1 cursor-pointer">
+                  <div className="bg-white rounded-3xl p-6 h-40 flex items-center justify-center border-2 border-foreground/20 hover:border-4 hover:border-primary hover:scale-110 hover:shadow-[0_20px_60px_-15px] hover:shadow-primary/40 transition-all duration-500 group hover:-rotate-1 cursor-pointer">
                     <div className="relative w-full h-full group-hover:scale-105 transition-transform duration-500">
                       <Image
                         src={partner.logo}
@@ -132,7 +132,7 @@ export function PartnerGrid() {
                     transform: isVisible ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)'
                   }}
                 >
-                  <div className={`bg-white rounded-3xl p-8 h-32 flex items-center justify-center transition-all duration-500 group cursor-pointer ${
+                  <div className={`bg-white rounded-3xl p-6 h-40 flex items-center justify-center transition-all duration-500 group cursor-pointer ${
                     partner.isPlaceholder 
                       ? 'border-2 border-dashed border-foreground/20 hover:border-4 hover:border-primary/80 hover:shadow-[0_20px_60px_-15px] hover:shadow-primary/30' 
                       : 'border-2 border-foreground/20 hover:border-4 hover:border-primary hover:scale-110 hover:shadow-[0_20px_60px_-15px] hover:shadow-primary/40 hover:rotate-1'

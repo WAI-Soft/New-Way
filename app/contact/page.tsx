@@ -8,7 +8,7 @@ import { ContactInfo } from '@/components/contact/contact-info'
 import { LocationMap } from '@/components/contact/location-map'
 
 export const metadata: Metadata = {
-  title: 'Contact Us | New Way Solutions',
+  title: 'Contact Us | New-Way-Solutions',
   description: 'Get in touch with New Way Solutions. Contact us for inquiries about our security solutions and services.',
 }
 
@@ -19,6 +19,7 @@ export default function ContactPage() {
       <PageHero 
         title="Get in Touch" 
         subtitle="Have questions about our services? We're here to help. Reach out to us and let's discuss how we can secure your business."
+        backgroundVariant="aurora"
       />
       
       {/* Contact Section */}

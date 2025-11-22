@@ -8,7 +8,7 @@ import { PartnerCategory } from '@/components/partners/partner-category'
 import { PartnershipBenefits } from '@/components/partners/partnership-benefits'
 
 export const metadata: Metadata = {
-  title: 'Technology Partners | New Way Solutions',
+  title: 'Technology Partners | New-Way-Solutions',
   description: 'Explore our strategic technology partnerships with leading security, cloud, and identity management providers.',
 }
 
