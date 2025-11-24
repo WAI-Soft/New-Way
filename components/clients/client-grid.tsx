@@ -171,7 +171,7 @@ function ClientCard({ client, index, isVisible }: { client: Client; index: numbe
 
 export function ClientGrid() {
   const { elementRef, isVisible } = useScrollAnimation()
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-card/20" ref={elementRef}>
@@ -183,9 +183,15 @@ export function ClientGrid() {
           }`}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            {t('clients.grid.title')}
-            {t('clients.grid.title') && t('clients.grid.highlight') && ' '}
-            {t('clients.grid.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('clients.grid.highlight')}</span>}
+            {language === 'en' ? (
+              <>
+                {t('clients.grid.title')}
+                {t('clients.grid.title') && t('clients.grid.highlight') && ' '}
+                {t('clients.grid.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('clients.grid.highlight')}</span>}
+              </>
+            ) : (
+              <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('clients.grid.title')}</span>
+            )}
           </h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
             {t('clients.grid.subtitle')}

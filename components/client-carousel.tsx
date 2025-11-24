@@ -111,9 +111,15 @@ export function ClientCarousel() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
         }`}>
           <h2 className="text-4xl sm:text-5xl font-bold text-balance mb-4">
-            {language === 'en' && t('clients.title')}
-            {t('clients.title') && t('clients.title.highlight') && ' '}
-            {t('clients.title.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('clients.title.highlight')}</span>}
+            {language === 'en' ? (
+              <>
+                {t('clients.title')}
+                {t('clients.title') && t('clients.title.highlight') && ' '}
+                {t('clients.title.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('clients.title.highlight')}</span>}
+              </>
+            ) : (
+              <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('clients.title')}</span>
+            )}
           </h2>
           <p className="text-lg text-foreground/60">{t('clients.subtitle')}</p>
         </div>

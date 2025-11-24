@@ -100,8 +100,8 @@ export const translations: Translations = {
   'partners.subtitle': { en: 'Over 500 enterprises partner with us to drive innovation', ar: 'أكثر من 500 مؤسسة تتعاون معنا لدفع الابتكار' },
 
   // Clients Section
-  'clients.title': { en: 'Our', ar: '' },
-  'clients.title.highlight': { en: 'Clients', ar: 'عملاؤنا' },
+  'clients.title': { en: 'Our', ar: 'عملاؤنا' },
+  'clients.title.highlight': { en: 'Clients', ar: '' },
   'clients.subtitle': { en: 'Trusted by leading enterprises worldwide', ar: 'موثوق به من قبل المؤسسات الرائدة في جميع أنحاء العالم' },
 
   // CTA Section
