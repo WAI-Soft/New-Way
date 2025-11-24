@@ -5,6 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, CheckCircle } from 'lucide-react'
 import { servicesData } from '@/lib/services-data'
+import { servicesTranslations } from '@/lib/services-data-translations'
+import { useLanguage } from '@/lib/language-context'
 import { notFound } from 'next/navigation'
 
 interface ServiceDetailProps {
@@ -13,14 +15,22 @@ interface ServiceDetailProps {
 
 export function ServiceDetail({ slug }: ServiceDetailProps) {
   const [isLoaded, setIsLoaded] = useState(false)
+  const { t, language } = useLanguage()
   
   const service = servicesData.find(s => s.slug === slug)
+  const serviceTranslation = servicesTranslations[slug]
   
   if (!service) {
     notFound()
   }
   
   const Icon = service.icon
+  
+  // Helper function to get translated text
+  const getTranslation = (key: { en: string; ar: string } | undefined) => {
+    if (!key) return ''
+    return language === 'ar' ? key.ar : key.en
+  }
 
   useEffect(() => {
     setIsLoaded(true)
@@ -37,7 +47,7 @@ export function ServiceDetail({ slug }: ServiceDetailProps) {
           } transition-all duration-500`}
         >
           <ArrowLeft className="w-5 h-5" />
-          <span className="font-medium">Back to Services</span>
+          <span className="font-medium">{t('service.detail.backToServices')}</span>
         </Link>
 
         {/* Header Section */}
@@ -45,10 +55,10 @@ export function ServiceDetail({ slug }: ServiceDetailProps) {
           isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-            {service.title}
+            {serviceTranslation ? getTranslation(serviceTranslation.title) : service.title}
           </h1>
           <p className="text-xl text-foreground/70 max-w-4xl">
-            {service.description}
+            {serviceTranslation ? getTranslation(serviceTranslation.description) : service.description}
           </p>
         </div>
 
@@ -74,7 +84,7 @@ export function ServiceDetail({ slug }: ServiceDetailProps) {
                   <Icon className="w-6 h-6 text-white" />
                 </div>
                 <h2 className="text-xl sm:text-2xl font-bold text-white drop-shadow-lg">
-                  {service.title}
+                  {serviceTranslation ? getTranslation(serviceTranslation.title) : service.title}
                 </h2>
               </div>
             </div>
@@ -86,7 +96,7 @@ export function ServiceDetail({ slug }: ServiceDetailProps) {
           isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <div className="prose prose-lg max-w-none">
-            {service.fullDescription.split('\n\n').map((paragraph, idx) => (
+            {(serviceTranslation ? getTranslation(serviceTranslation.fullDescription) : service.fullDescription).split('\n\n').map((paragraph, idx) => (
               <p key={idx} className="text-foreground/80 leading-relaxed mb-6 text-lg">
                 {paragraph}
               </p>
@@ -98,23 +108,30 @@ export function ServiceDetail({ slug }: ServiceDetailProps) {
         <div className={`mb-16 transition-all duration-1000 delay-400 ${
           isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <h2 className="text-3xl font-bold text-foreground mb-4">{service.howItWorks.title}</h2>
-          <p className="text-lg text-foreground/70 mb-8">{service.howItWorks.content}</p>
+          <h2 className="text-3xl font-bold text-foreground mb-4">
+            {serviceTranslation ? getTranslation(serviceTranslation.howItWorks.title) : service.howItWorks.title}
+          </h2>
+          <p className="text-lg text-foreground/70 mb-8">
+            {serviceTranslation ? getTranslation(serviceTranslation.howItWorks.content) : service.howItWorks.content}
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {service.howItWorks.points.map((point, idx) => (
-              <div 
-                key={idx}
-                className="bg-card border border-border/40 rounded-xl p-6 hover:border-primary/50 transition-all duration-300"
-              >
-                <h3 className={`text-xl font-bold mb-3 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
-                  {point.title}
-                </h3>
-                <p className="text-foreground/70 leading-relaxed">
-                  {point.description}
-                </p>
-              </div>
-            ))}
+            {service.howItWorks.points.map((point, idx) => {
+              const translatedPoint = serviceTranslation?.howItWorks.points[idx]
+              return (
+                <div 
+                  key={idx}
+                  className="bg-card border border-border/40 rounded-xl p-6 hover:border-primary/50 transition-all duration-300"
+                >
+                  <h3 className={`text-xl font-bold mb-3 bg-gradient-to-r ${service.gradient} bg-clip-text text-transparent`}>
+                    {translatedPoint ? getTranslation(translatedPoint.title) : point.title}
+                  </h3>
+                  <p className="text-foreground/70 leading-relaxed">
+                    {translatedPoint ? getTranslation(translatedPoint.description) : point.description}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
 
@@ -122,21 +139,30 @@ export function ServiceDetail({ slug }: ServiceDetailProps) {
         <div className={`mb-16 transition-all duration-1000 delay-500 ${
           isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <h2 className="text-3xl font-bold text-foreground mb-4">{service.addingValue.title}</h2>
-          <p className="text-lg text-foreground/70 mb-8">{service.addingValue.content}</p>
+          <h2 className="text-3xl font-bold text-foreground mb-4">
+            {serviceTranslation ? getTranslation(serviceTranslation.addingValue.title) : service.addingValue.title}
+          </h2>
+          <p className="text-lg text-foreground/70 mb-8">
+            {serviceTranslation ? getTranslation(serviceTranslation.addingValue.content) : service.addingValue.content}
+          </p>
           
           <div className="bg-gradient-to-br from-card to-card/50 border border-border/40 rounded-2xl p-8">
             <ul className="space-y-4">
-              {service.addingValue.benefits.map((benefit, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <CheckCircle className={`w-6 h-6 flex-shrink-0 mt-0.5 text-primary`} />
-                  <span className="text-foreground/80 text-lg leading-relaxed">{benefit}</span>
-                </li>
-              ))}
+              {service.addingValue.benefits.map((benefit, idx) => {
+                const translatedBenefit = serviceTranslation?.addingValue.benefits[idx]
+                return (
+                  <li key={idx} className="flex items-start gap-3">
+                    <CheckCircle className={`w-6 h-6 flex-shrink-0 mt-0.5 text-primary`} />
+                    <span className="text-foreground/80 text-lg leading-relaxed">
+                      {translatedBenefit ? getTranslation(translatedBenefit) : benefit}
+                    </span>
+                  </li>
+                )
+              })}
             </ul>
           </div>
           <p className="text-foreground/70 mt-6 text-lg leading-relaxed">
-            By partnering with us, you're not only safeguarding your business, but you're also making it easier for your teams to work efficiently and securely.
+            {t('service.detail.closingNote')}
           </p>
         </div>
 
@@ -144,34 +170,41 @@ export function ServiceDetail({ slug }: ServiceDetailProps) {
         <div className={`mb-16 transition-all duration-1000 delay-600 ${
           isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <h2 className="text-3xl font-bold text-foreground mb-4">{service.process.title}</h2>
-          <p className="text-lg text-foreground/70 mb-8">{service.process.content}</p>
+          <h2 className="text-3xl font-bold text-foreground mb-4">
+            {serviceTranslation ? getTranslation(serviceTranslation.process.title) : service.process.title}
+          </h2>
+          <p className="text-lg text-foreground/70 mb-8">
+            {serviceTranslation ? getTranslation(serviceTranslation.process.content) : service.process.content}
+          </p>
           
           <div className="space-y-6">
-            {service.process.steps.map((step, idx) => (
-              <div 
-                key={idx}
-                className="relative bg-card border border-border/40 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg group"
-              >
-                <div className="flex items-start gap-4">
-                  <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    {idx + 1}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-foreground mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-foreground/70 leading-relaxed">
-                      {step.description}
-                    </p>
+            {service.process.steps.map((step, idx) => {
+              const translatedStep = serviceTranslation?.process.steps[idx]
+              return (
+                <div 
+                  key={idx}
+                  className="relative bg-card border border-border/40 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg group"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-r ${service.gradient} flex items-center justify-center text-white font-bold shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                      {idx + 1}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-foreground mb-2">
+                        {translatedStep ? getTranslation(translatedStep.title) : step.title}
+                      </h3>
+                      <p className="text-foreground/70 leading-relaxed">
+                        {translatedStep ? getTranslation(translatedStep.description) : step.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
           
           <p className="text-foreground/70 mt-8 text-lg leading-relaxed">
-            With this process, you get a comprehensive solution that not only secures your systems but also enhances user productivity and compliance.
+            {t('service.detail.processNote')}
           </p>
         </div>
 
@@ -180,13 +213,13 @@ export function ServiceDetail({ slug }: ServiceDetailProps) {
           isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <p className="text-lg text-foreground/80 leading-relaxed mb-6">
-            {service.closingStatement}
+            {serviceTranslation ? getTranslation(serviceTranslation.closingStatement) : service.closingStatement}
           </p>
           <Link 
             href="/contact"
             className={`inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r ${service.gradient} text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105`}
           >
-            Get Started Today
+            {t('service.detail.getStarted')}
             <ArrowLeft className="w-5 h-5 rotate-180" />
           </Link>
         </div>

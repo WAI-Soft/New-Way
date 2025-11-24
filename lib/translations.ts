@@ -472,3 +472,9 @@ export const translations: Translations = {
   'about.faqs.title': { en: 'Frequently Asked', ar: '' },
   'about.faqs.highlight': { en: 'Questions', ar: 'الأسئلة الشائعة' },
 }
+
+  // Service Detail Page
+  'service.detail.backToServices': { en: 'Back to Services', ar: 'العودة إلى الخدمات' },
+  'service.detail.getStarted': { en: 'Get Started Today', ar: 'ابدأ اليوم' },
+  'service.detail.closingNote': { en: 'By partnering with us, you\'re not only safeguarding your business, but you\'re also making it easier for your teams to work efficiently and securely.', ar: 'من خلال الشراكة معنا، فأنت لا تحمي عملك فحسب، بل تسهل أيضًا على فرقك العمل بكفاءة وأمان.' },
+  'service.detail.processNote': { en: 'With this process, you get a comprehensive solution that not only secures your systems but also enhances user productivity and compliance.', ar: 'من خلال هذه العملية، تحصل على حل شامل لا يؤمن أنظمتك فحسب، بل يعزز أيضًا إنتاجية المستخدم والامتثال.' },
