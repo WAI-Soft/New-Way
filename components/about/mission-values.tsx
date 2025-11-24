@@ -112,7 +112,7 @@ export function MissionValues() {
             <div
               className={`lg:w-[calc(50%-1.5rem)] lg:ml-auto lg:mt-72 transition-all duration-1000 delay-200 ${
                 isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-              }`}
+              } ${language === 'ar' ? 'lg:mr-6' : ''}`}
             >
               <div className="group relative">
                 {/* Gradient glow effect */}
