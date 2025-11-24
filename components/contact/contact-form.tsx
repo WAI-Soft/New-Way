@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react'
 import { Loader2, CheckCircle2 } from 'lucide-react'
+import { useLanguage } from '@/lib/language-context'
 
 interface FormData {
   name: string
@@ -20,6 +21,7 @@ interface FormErrors {
 }
 
 export function ContactForm() {
+  const { t } = useLanguage()
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -48,33 +50,33 @@ export function ContactForm() {
 
     // Name validation
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required'
+      newErrors.name = t('form.error.nameRequired')
     }
 
     // Email validation
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required'
+      newErrors.email = t('form.error.emailRequired')
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
+      newErrors.email = t('form.error.emailInvalid')
     }
 
     // Company validation
     if (!formData.company.trim()) {
-      newErrors.company = 'Company name is required'
+      newErrors.company = t('form.error.companyRequired')
     }
 
     // Phone validation
     if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required'
+      newErrors.phone = t('form.error.phoneRequired')
     } else if (!validatePhone(formData.phone)) {
-      newErrors.phone = 'Please enter a valid phone number'
+      newErrors.phone = t('form.error.phoneInvalid')
     }
 
     // Message validation
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required'
+      newErrors.message = t('form.error.messageRequired')
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters'
+      newErrors.message = t('form.error.messageMinLength')
     }
 
     setErrors(newErrors)
@@ -129,13 +131,13 @@ export function ContactForm() {
 
   return (
     <div className="bg-card border border-border/40 rounded-2xl p-8">
-      <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
+      <h2 className="text-2xl font-bold mb-6">{t('contact.form.title')}</h2>
       
       {isSuccess && (
         <div className="mb-6 p-4 bg-primary/10 border border-primary/20 rounded-lg flex items-center gap-3">
           <CheckCircle2 className="text-primary" size={24} />
           <p className="text-primary font-medium">
-            Thank you! Your message has been sent successfully. We'll get back to you soon.
+            {t('contact.form.success')}
           </p>
         </div>
       )}
@@ -144,7 +146,7 @@ export function ContactForm() {
         {/* Name Field */}
         <div>
           <label htmlFor="name" className="block text-sm font-medium mb-2">
-            Name <span className="text-destructive">*</span>
+            {t('contact.form.name')} <span className="text-destructive">{t('form.required')}</span>
           </label>
           <input
             type="text"
@@ -157,7 +159,7 @@ export function ContactForm() {
                 ? 'border-destructive focus:border-destructive focus:ring-destructive/20'
                 : 'border-border/40 focus:border-primary focus:ring-primary/20'
             }`}
-            placeholder="John Doe"
+            placeholder={t('contact.form.name.placeholder')}
           />
           {errors.name && (
             <p className="text-destructive text-sm mt-1">{errors.name}</p>
@@ -167,7 +169,7 @@ export function ContactForm() {
         {/* Email Field */}
         <div>
           <label htmlFor="email" className="block text-sm font-medium mb-2">
-            Email <span className="text-destructive">*</span>
+            {t('contact.form.email')} <span className="text-destructive">{t('form.required')}</span>
           </label>
           <input
             type="email"
@@ -180,7 +182,7 @@ export function ContactForm() {
                 ? 'border-destructive focus:border-destructive focus:ring-destructive/20'
                 : 'border-border/40 focus:border-primary focus:ring-primary/20'
             }`}
-            placeholder="john@company.com"
+            placeholder={t('contact.form.email.placeholder')}
           />
           {errors.email && (
             <p className="text-destructive text-sm mt-1">{errors.email}</p>
@@ -190,7 +192,7 @@ export function ContactForm() {
         {/* Company Field */}
         <div>
           <label htmlFor="company" className="block text-sm font-medium mb-2">
-            Company <span className="text-destructive">*</span>
+            {t('contact.form.company')} <span className="text-destructive">{t('form.required')}</span>
           </label>
           <input
             type="text"
@@ -203,7 +205,7 @@ export function ContactForm() {
                 ? 'border-destructive focus:border-destructive focus:ring-destructive/20'
                 : 'border-border/40 focus:border-primary focus:ring-primary/20'
             }`}
-            placeholder="Your Company"
+            placeholder={t('contact.form.company.placeholder')}
           />
           {errors.company && (
             <p className="text-destructive text-sm mt-1">{errors.company}</p>
@@ -213,7 +215,7 @@ export function ContactForm() {
         {/* Phone Field */}
         <div>
           <label htmlFor="phone" className="block text-sm font-medium mb-2">
-            Phone <span className="text-destructive">*</span>
+            {t('contact.form.phone')} <span className="text-destructive">{t('form.required')}</span>
           </label>
           <input
             type="tel"
@@ -226,7 +228,7 @@ export function ContactForm() {
                 ? 'border-destructive focus:border-destructive focus:ring-destructive/20'
                 : 'border-border/40 focus:border-primary focus:ring-primary/20'
             }`}
-            placeholder="+1 (555) 123-4567"
+            placeholder={t('contact.form.phone.placeholder')}
           />
           {errors.phone && (
             <p className="text-destructive text-sm mt-1">{errors.phone}</p>
@@ -236,7 +238,7 @@ export function ContactForm() {
         {/* Message Field */}
         <div>
           <label htmlFor="message" className="block text-sm font-medium mb-2">
-            Message <span className="text-destructive">*</span>
+            {t('contact.form.message')} <span className="text-destructive">{t('form.required')}</span>
           </label>
           <textarea
             id="message"
@@ -249,7 +251,7 @@ export function ContactForm() {
                 ? 'border-destructive focus:border-destructive focus:ring-destructive/20'
                 : 'border-border/40 focus:border-primary focus:ring-primary/20'
             }`}
-            placeholder="Tell us about your project or inquiry..."
+            placeholder={t('contact.form.message.placeholder')}
           />
           {errors.message && (
             <p className="text-destructive text-sm mt-1">{errors.message}</p>
@@ -265,10 +267,10 @@ export function ContactForm() {
           {isSubmitting ? (
             <>
               <Loader2 className="animate-spin" size={20} />
-              Sending...
+              {t('contact.form.sending')}
             </>
           ) : (
-            'Send Message'
+            t('contact.form.submit')
           )}
         </button>
       </form>

@@ -1,4 +1,5 @@
-import { Metadata } from 'next'
+'use client'
+
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { ScrollToTop } from '@/components/scroll-to-top'
@@ -7,19 +8,17 @@ import { CompanyOverview } from '@/components/about/company-overview'
 import { FAQsSection } from '@/components/about/faqs-section'
 import { WorkProcess } from '@/components/work-process'
 import { MissionValues } from '@/components/about/mission-values'
-
-export const metadata: Metadata = {
-  title: 'About Us | New-Way-Solutions',
-  description: 'Learn about New Way Solutions - our mission, values, and commitment to delivering innovative cybersecurity and IT solutions.',
-}
+import { useLanguage } from '@/lib/language-context'
 
 export default function AboutPage() {
+  const { t } = useLanguage()
+
   return (
     <main className="w-full">
       <Header />
       <PageHero 
-        title="About New Way Solutions" 
-        subtitle="Transforming enterprises with innovative solutions and unparalleled expertise"
+        title={t('about.page.title')}
+        subtitle={t('about.page.subtitle')}
         backgroundVariant="aurora"
       />
       

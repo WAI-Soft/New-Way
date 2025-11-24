@@ -2,90 +2,28 @@
 
 import { useState } from 'react'
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { useLanguage } from '@/lib/language-context'
 import { ChevronDown } from 'lucide-react'
 
 interface FAQ {
-  question: string
-  answer: string[]
+  questionKey: string
+  answerKeys: string[]
 }
-
-const faqs: FAQ[] = [
-  {
-    question: 'Secure Access & Identity',
-    answer: [
-      'Implement robust Multi-Factor Authentication (MFA) with Symantec VIP (2FA)',
-      'Leverage Symantec Web Protection Suite (WPS) for secure web browsing',
-      'Secure your network perimeter with next-generation firewalls (NGFW) from Palo Alto Networks'
-    ]
-  },
-  {
-    question: 'Threat Detection & Response',
-    answer: [
-      'Gain comprehensive threat detection and response with Palo Alto Networks Cortex XDR and Cortex XSOAR',
-      'Secure your cloud environment with Symantec CloudSOC CASB'
-    ]
-  },
-  {
-    question: 'Endpoint Security',
-    answer: [
-      'Protect your devices from malware and advanced threats with Symantec Endpoint Protection (SEP) and Endpoint Detection and Response (EDR)',
-      'Ensure data privacy with Symantec Endpoint Encryption (PGP)',
-      'Fortify endpoint security with TrilleX HX and Email Security (EX)'
-    ]
-  },
-  {
-    question: 'Data Security & Compliance',
-    answer: [
-      'Prevent data breaches with Symantec Data Loss Prevention (DLP)',
-      'Enforce data security policies with TrilleX Network Security (NX) and Central Management System (CMS)'
-    ]
-  },
-  {
-    question: 'Email Security',
-    answer: [
-      'Block phishing attempts and malware with Symantec Email Security.cloud and TrilleX Email Threat Protection (ETP)'
-    ]
-  },
-  {
-    question: 'Network Management & Monitoring',
-    answer: [
-      'Gain real-time insights into network performance with SolarWinds Network Performance Management (NPM), Network Traffic Analyzer (NTA), and Network Configuration Manager (NCM)',
-      'Optimize database performance with SolarWinds Database Performance Analyzer (DPA)',
-      'Monitor server and application health with SolarWinds Server & Application Monitor (SAM)'
-    ]
-  },
-  {
-    question: 'Virtualization & Cloud Security',
-    answer: [
-      'Manage virtual environments effectively with SolarWinds Virtualization Manager (VMAN)',
-      'Ensure efficient storage resource utilization with SolarWinds Storage Resource Monitor (SRM)'
-    ]
-  },
-  {
-    question: 'Additional Solutions',
-    answer: [
-      'Enable secure remote access with Citrix solutions like Application Delivery Controller (ADC), Virtual Desktop Infrastructure (VDI), and VPN Gateway',
-      'Protect against file-based threats with TrilleX File Protect (FX)',
-      'Perform advanced malware analysis with TrilleX Malware Analysis (AX)',
-      'Simplify user and device management with Ivanti Security Control (i-Sec)',
-      'Deliver application security with F5 BIG-IP Local Traffic Manager and Web Application Firewall (WAF)',
-      'Enhance file transfer security with OPSWAT MetaDefender and MetaAccess'
-    ]
-  }
-]
 
 function FAQItem({ 
   faq, 
   index, 
   isVisible, 
   isOpen, 
-  onToggle 
+  onToggle,
+  t
 }: { 
   faq: FAQ; 
   index: number; 
   isVisible: boolean;
   isOpen: boolean;
   onToggle: () => void;
+  t: (key: string) => string;
 }) {
   return (
     <div
@@ -97,10 +35,10 @@ function FAQItem({
       <div className="border border-border/40 rounded-xl hover:border-primary/50 transition-colors bg-card overflow-hidden">
         <button
           onClick={onToggle}
-          className="w-full flex items-center justify-between p-6 text-left hover:bg-card/50 transition-colors"
+          className="w-full flex items-center justify-between p-6 text-start hover:bg-card/50 transition-colors"
         >
-          <span className="text-lg font-semibold text-foreground pr-4">
-            {faq.question}
+          <span className="text-lg font-semibold text-foreground pe-4">
+            {t(faq.questionKey)}
           </span>
           <ChevronDown
             className={`w-5 h-5 text-primary transition-transform duration-300 flex-shrink-0 ${
@@ -115,10 +53,10 @@ function FAQItem({
           } overflow-hidden`}
         >
           <div className="px-6 pb-6 space-y-3">
-            {faq.answer.map((item, idx) => (
+            {faq.answerKeys.map((answerKey, idx) => (
               <div key={idx} className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-cyan-400 mt-2 flex-shrink-0" />
-                <p className="text-foreground/70 leading-relaxed">{item}</p>
+                <p className="text-foreground/70 leading-relaxed">{t(answerKey)}</p>
               </div>
             ))}
           </div>
@@ -130,7 +68,73 @@ function FAQItem({
 
 export function FAQsSection() {
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t } = useLanguage()
   const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const faqs: FAQ[] = [
+    {
+      questionKey: 'about.faqs.secureAccess.question',
+      answerKeys: [
+        'about.faqs.secureAccess.answer1',
+        'about.faqs.secureAccess.answer2',
+        'about.faqs.secureAccess.answer3'
+      ]
+    },
+    {
+      questionKey: 'about.faqs.threatDetection.question',
+      answerKeys: [
+        'about.faqs.threatDetection.answer1',
+        'about.faqs.threatDetection.answer2'
+      ]
+    },
+    {
+      questionKey: 'about.faqs.endpointSecurity.question',
+      answerKeys: [
+        'about.faqs.endpointSecurity.answer1',
+        'about.faqs.endpointSecurity.answer2',
+        'about.faqs.endpointSecurity.answer3'
+      ]
+    },
+    {
+      questionKey: 'about.faqs.dataSecurity.question',
+      answerKeys: [
+        'about.faqs.dataSecurity.answer1',
+        'about.faqs.dataSecurity.answer2'
+      ]
+    },
+    {
+      questionKey: 'about.faqs.emailSecurity.question',
+      answerKeys: [
+        'about.faqs.emailSecurity.answer1'
+      ]
+    },
+    {
+      questionKey: 'about.faqs.networkManagement.question',
+      answerKeys: [
+        'about.faqs.networkManagement.answer1',
+        'about.faqs.networkManagement.answer2',
+        'about.faqs.networkManagement.answer3'
+      ]
+    },
+    {
+      questionKey: 'about.faqs.virtualization.question',
+      answerKeys: [
+        'about.faqs.virtualization.answer1',
+        'about.faqs.virtualization.answer2'
+      ]
+    },
+    {
+      questionKey: 'about.faqs.additional.question',
+      answerKeys: [
+        'about.faqs.additional.answer1',
+        'about.faqs.additional.answer2',
+        'about.faqs.additional.answer3',
+        'about.faqs.additional.answer4',
+        'about.faqs.additional.answer5',
+        'about.faqs.additional.answer6'
+      ]
+    }
+  ]
 
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
@@ -146,10 +150,12 @@ export function FAQsSection() {
           }`}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Frequently Asked <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">Questions</span>
+            {t('about.faqs.title')}
+            {t('about.faqs.title') && t('about.faqs.highlight') && ' '}
+            {t('about.faqs.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('about.faqs.highlight')}</span>}
           </h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            Learn more about our comprehensive cybersecurity solutions and services
+            {t('about.faqs.subtitle')}
           </p>
         </div>
 
@@ -163,6 +169,7 @@ export function FAQsSection() {
               isVisible={isVisible}
               isOpen={openIndex === index}
               onToggle={() => handleToggle(index)}
+              t={t}
             />
           ))}
         </div>

@@ -139,6 +139,207 @@
   }
 }
 
+/* RTL Support Styles */
+[dir="rtl"] {
+  direction: rtl;
+  font-family: var(--font-cairo), sans-serif;
+}
+
+[dir="ltr"] {
+  direction: ltr;
+}
+
+/* RTL Flexbox Utilities */
+[dir="rtl"] .flex-row {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .flex-row-reverse {
+  flex-direction: row;
+}
+
+/* RTL Grid Utilities */
+[dir="rtl"] .grid-flow-col {
+  grid-auto-flow: column reverse;
+}
+
+/* RTL Text Alignment */
+[dir="rtl"] .text-left {
+  text-align: right;
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+/* Preserve LTR for specific content */
+.ltr-content {
+  direction: ltr !important;
+}
+
+/* RTL Icon Flipping - for directional icons like arrows */
+[dir="rtl"] .flip-rtl {
+  transform: scaleX(-1);
+}
+
+/* RTL Positioning Utilities */
+[dir="rtl"] .left-0 {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .right-0 {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .left-8 {
+  left: auto;
+  right: 2rem;
+}
+
+[dir="rtl"] .right-8 {
+  right: auto;
+  left: 2rem;
+}
+
+/* RTL-aware positioning with logical properties */
+.inline-start-0 {
+  inset-inline-start: 0;
+}
+
+.inline-end-0 {
+  inset-inline-end: 0;
+}
+
+.inline-start-4 {
+  inset-inline-start: 1rem;
+}
+
+.inline-end-4 {
+  inset-inline-end: 1rem;
+}
+
+.inline-start-8 {
+  inset-inline-start: 2rem;
+}
+
+.inline-end-8 {
+  inset-inline-end: 2rem;
+}
+
+.-inline-start-4 {
+  inset-inline-start: -1rem;
+}
+
+.-inline-end-4 {
+  inset-inline-end: -1rem;
+}
+
+/* RTL Transform Utilities */
+.rtl\:rotate-180 {
+  transform: rotate(0deg);
+}
+
+[dir="rtl"] .rtl\:rotate-180 {
+  transform: rotate(180deg);
+}
+
+.ltr\:-inline-end-4 {
+  inset-inline-end: auto;
+}
+
+[dir="ltr"] .ltr\:-inline-end-4 {
+  inset-inline-end: -1rem;
+}
+
+.rtl\:-inline-start-4 {
+  inset-inline-start: auto;
+}
+
+[dir="rtl"] .rtl\:-inline-start-4 {
+  inset-inline-start: -1rem;
+}
+
+/* CSS Logical Properties Utilities */
+.ms-auto {
+  margin-inline-start: auto;
+}
+
+.me-auto {
+  margin-inline-end: auto;
+}
+
+.ps-0 { padding-inline-start: 0; }
+.ps-1 { padding-inline-start: 0.25rem; }
+.ps-2 { padding-inline-start: 0.5rem; }
+.ps-3 { padding-inline-start: 0.75rem; }
+.ps-4 { padding-inline-start: 1rem; }
+.ps-5 { padding-inline-start: 1.25rem; }
+.ps-6 { padding-inline-start: 1.5rem; }
+.ps-8 { padding-inline-start: 2rem; }
+.ps-10 { padding-inline-start: 2.5rem; }
+.ps-12 { padding-inline-start: 3rem; }
+
+.pe-0 { padding-inline-end: 0; }
+.pe-1 { padding-inline-end: 0.25rem; }
+.pe-2 { padding-inline-end: 0.5rem; }
+.pe-3 { padding-inline-end: 0.75rem; }
+.pe-4 { padding-inline-end: 1rem; }
+.pe-5 { padding-inline-end: 1.25rem; }
+.pe-6 { padding-inline-end: 1.5rem; }
+.pe-8 { padding-inline-end: 2rem; }
+.pe-10 { padding-inline-end: 2.5rem; }
+.pe-12 { padding-inline-end: 3rem; }
+
+.ms-0 { margin-inline-start: 0; }
+.ms-1 { margin-inline-start: 0.25rem; }
+.ms-2 { margin-inline-start: 0.5rem; }
+.ms-3 { margin-inline-start: 0.75rem; }
+.ms-4 { margin-inline-start: 1rem; }
+.ms-5 { margin-inline-start: 1.25rem; }
+.ms-6 { margin-inline-start: 1.5rem; }
+.ms-8 { margin-inline-start: 2rem; }
+.ms-10 { margin-inline-start: 2.5rem; }
+.ms-12 { margin-inline-start: 3rem; }
+
+.me-0 { margin-inline-end: 0; }
+.me-1 { margin-inline-end: 0.25rem; }
+.me-2 { margin-inline-end: 0.5rem; }
+.me-3 { margin-inline-end: 0.75rem; }
+.me-4 { margin-inline-end: 1rem; }
+.me-5 { margin-inline-end: 1.25rem; }
+.me-6 { margin-inline-end: 1.5rem; }
+.me-8 { margin-inline-end: 2rem; }
+.me-10 { margin-inline-end: 2.5rem; }
+.me-12 { margin-inline-end: 3rem; }
+
+/* Border Radius Logical Properties */
+.rounded-s { border-start-start-radius: var(--radius); border-end-start-radius: var(--radius); }
+.rounded-e { border-start-end-radius: var(--radius); border-end-end-radius: var(--radius); }
+.rounded-ss { border-start-start-radius: var(--radius); }
+.rounded-se { border-start-end-radius: var(--radius); }
+.rounded-es { border-end-start-radius: var(--radius); }
+.rounded-ee { border-end-end-radius: var(--radius); }
+
+/* Text Alignment Logical Properties */
+.text-start {
+  text-align: start;
+}
+
+.text-end {
+  text-align: end;
+}
+
+/* Float Logical Properties */
+.float-start {
+  float: inline-start;
+}
+
+.float-end {
+  float: inline-end;
+}
+
 @supports (perspective: 1000px) {
   .perspective {
     perspective: 1000px;

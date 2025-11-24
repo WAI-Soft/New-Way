@@ -1,34 +1,36 @@
 'use client'
 
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { useLanguage } from '@/lib/language-context'
 import { Target, Eye, Heart } from 'lucide-react'
-
-const mission = {
-  title: 'Mission',
-  description: 'To empower organizations with cutting-edge cybersecurity and IT solutions that protect their digital assets, ensure compliance, and enable business growth in an increasingly connected world.',
-  icon: Target,
-  gradient: 'from-primary via-cyan-400 to-primary',
-  bgGradient: 'from-primary/5 via-cyan-400/5 to-primary/5'
-}
-
-const vision = {
-  title: 'Vision',
-  description: 'To be the most trusted partner in enterprise security, recognized globally for our innovation, expertise, and unwavering commitment to protecting organizations from evolving cyber threats.',
-  icon: Eye,
-  gradient: 'from-cyan-500 via-teal-400 to-cyan-500',
-  bgGradient: 'from-cyan-500/5 via-teal-400/5 to-cyan-500/5'
-}
-
-const values = {
-  title: 'Values',
-  description: 'Integrity, Excellence, Innovation, and Client Success. We believe in building lasting relationships through transparency, delivering exceptional results, and continuously evolving to meet the challenges of tomorrow.',
-  icon: Heart,
-  gradient: 'from-teal-500 via-cyan-500 to-primary',
-  bgGradient: 'from-teal-500/5 via-cyan-500/5 to-primary/5'
-}
 
 export function MissionValues() {
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t } = useLanguage()
+
+  const mission = {
+    title: t('about.mvv.mission.title'),
+    description: t('about.mvv.mission.description'),
+    icon: Target,
+    gradient: 'from-primary via-cyan-400 to-primary',
+    bgGradient: 'from-primary/5 via-cyan-400/5 to-primary/5'
+  }
+
+  const vision = {
+    title: t('about.mvv.vision.title'),
+    description: t('about.mvv.vision.description'),
+    icon: Eye,
+    gradient: 'from-cyan-500 via-teal-400 to-cyan-500',
+    bgGradient: 'from-cyan-500/5 via-teal-400/5 to-cyan-500/5'
+  }
+
+  const values = {
+    title: t('about.mvv.values.title'),
+    description: t('about.mvv.values.description'),
+    icon: Heart,
+    gradient: 'from-teal-500 via-cyan-500 to-primary',
+    bgGradient: 'from-teal-500/5 via-cyan-500/5 to-primary/5'
+  }
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background via-card/20 to-background relative overflow-hidden" ref={elementRef}>
@@ -46,10 +48,12 @@ export function MissionValues() {
           }`}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-3">
-            What <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">Drives Us</span>
+            {t('about.mvv.title')}
+            {t('about.mvv.title') && t('about.mvv.highlight') && ' '}
+            {t('about.mvv.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('about.mvv.highlight')}</span>}
           </h2>
           <p className="text-base text-foreground/60 max-w-2xl mx-auto">
-            Our foundation built on purpose, vision, and unwavering principles
+            {t('about.mvv.subtitle')}
           </p>
         </div>
 

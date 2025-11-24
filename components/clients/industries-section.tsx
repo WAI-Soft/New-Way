@@ -1,49 +1,51 @@
 'use client'
 
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { useLanguage } from '@/lib/language-context'
 import { Building2, Heart, Landmark, GraduationCap, ShoppingBag, Factory } from 'lucide-react'
 
 interface Industry {
-  name: string
+  nameKey: string
   icon: React.ElementType
-  description: string
+  descriptionKey: string
 }
 
-const industries: Industry[] = [
+const industriesData: Industry[] = [
   {
-    name: 'Government',
+    nameKey: 'clients.industries.government',
     icon: Landmark,
-    description: 'Secure solutions for public sector organizations'
+    descriptionKey: 'clients.industries.government.description'
   },
   {
-    name: 'Healthcare',
+    nameKey: 'clients.industries.healthcare',
     icon: Heart,
-    description: 'HIPAA-compliant security for medical institutions'
+    descriptionKey: 'clients.industries.healthcare.description'
   },
   {
-    name: 'Finance',
+    nameKey: 'clients.industries.finance',
     icon: Building2,
-    description: 'Banking-grade security for financial services'
+    descriptionKey: 'clients.industries.finance.description'
   },
   {
-    name: 'Education',
+    nameKey: 'clients.industries.education',
     icon: GraduationCap,
-    description: 'Protecting academic institutions and student data'
+    descriptionKey: 'clients.industries.education.description'
   },
   {
-    name: 'Retail',
+    nameKey: 'clients.industries.retail',
     icon: ShoppingBag,
-    description: 'E-commerce and retail security solutions'
+    descriptionKey: 'clients.industries.retail.description'
   },
   {
-    name: 'Manufacturing',
+    nameKey: 'clients.industries.manufacturing',
     icon: Factory,
-    description: 'Industrial security and operational technology'
+    descriptionKey: 'clients.industries.manufacturing.description'
   }
 ]
 
 export function IndustriesSection() {
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t } = useLanguage()
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-card/30 to-background" ref={elementRef}>
@@ -55,16 +57,18 @@ export function IndustriesSection() {
           }`}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Industries <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">We Serve</span>
+            {t('clients.industries.title')}
+            {t('clients.industries.title') && t('clients.industries.highlight') && ' '}
+            {t('clients.industries.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('clients.industries.highlight')}</span>}
           </h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            Delivering specialized security solutions across diverse sectors
+            {t('clients.industries.subtitle')}
           </p>
         </div>
 
         {/* Industries grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
-          {industries.map((industry, index) => {
+          {industriesData.map((industry, index) => {
             const Icon = industry.icon
             return (
               <div
@@ -91,12 +95,12 @@ export function IndustriesSection() {
 
                     {/* Title */}
                     <h3 className="text-xl font-bold mb-2 text-foreground">
-                      {industry.name}
+                      {t(industry.nameKey)}
                     </h3>
 
                     {/* Description */}
                     <p className="text-foreground/60 leading-relaxed">
-                      {industry.description}
+                      {t(industry.descriptionKey)}
                     </p>
                   </div>
                 </div>

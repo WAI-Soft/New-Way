@@ -1,3 +1,5 @@
+'use client'
+
 import { Metadata } from 'next'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
@@ -6,19 +8,17 @@ import { PageHero } from '@/components/page-hero'
 import { ClientGrid } from '@/components/clients/client-grid'
 import { IndustriesSection } from '@/components/clients/industries-section'
 import { TestimonialsSection } from '@/components/clients/testimonials-section'
-
-export const metadata: Metadata = {
-  title: 'Our Clients | New-Way-Solutions',
-  description: 'Trusted by industry leaders across government, healthcare, finance, and more. See how we help organizations achieve their security goals.',
-}
+import { useLanguage } from '@/lib/language-context'
 
 export default function ClientsPage() {
+  const { t } = useLanguage()
+
   return (
     <main className="w-full">
       <Header />
       <PageHero 
-        title="Trusted by Industry Leaders"
-        subtitle="We partner with organizations across diverse sectors to deliver world-class security solutions and drive digital transformation."
+        title={t('clients.page.title')}
+        subtitle={t('clients.page.subtitle')}
         backgroundVariant="aurora"
       />
       

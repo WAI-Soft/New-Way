@@ -1,4 +1,5 @@
-import { Metadata } from 'next'
+'use client'
+
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { ScrollToTop } from '@/components/scroll-to-top'
@@ -6,19 +7,17 @@ import { PageHero } from '@/components/page-hero'
 import { ContactForm } from '@/components/contact/contact-form'
 import { ContactInfo } from '@/components/contact/contact-info'
 import { LocationMap } from '@/components/contact/location-map'
-
-export const metadata: Metadata = {
-  title: 'Contact Us | New-Way-Solutions',
-  description: 'Get in touch with New Way Solutions. Contact us for inquiries about our security solutions and services.',
-}
+import { useLanguage } from '@/lib/language-context'
 
 export default function ContactPage() {
+  const { t } = useLanguage()
+  
   return (
     <main className="w-full">
       <Header />
       <PageHero 
-        title="Get in Touch" 
-        subtitle="Have questions about our services? We're here to help. Reach out to us and let's discuss how we can secure your business."
+        title={t('contact.hero.title')}
+        subtitle={t('contact.hero.subtitle')}
         backgroundVariant="aurora"
       />
       

@@ -2,36 +2,38 @@
 
 import { Search, Settings, Shield } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
-
-const processes = [
-  {
-    phase: '01',
-    title: 'Assessment',
-    description: 'Analyze client needs and IT infrastructure to design tailored cybersecurity and IT solutions',
-    icon: Search,
-    color: 'from-[#50af9b] to-[#3b9482]',
-    delay: '0'
-  },
-  {
-    phase: '02',
-    title: 'Implementation',
-    description: 'Deploy identity management, multi-factor authentication, and security measures into the system',
-    icon: Settings,
-    color: 'from-[#60c9b3] to-[#50af9b]',
-    delay: '200'
-  },
-  {
-    phase: '03',
-    title: 'Monitoring & Support',
-    description: 'Provide continuous system monitoring, log management, and 24/7 support to ensure security',
-    icon: Shield,
-    color: 'from-[#70d9c3] to-[#60c9b3]',
-    delay: '400'
-  }
-]
+import { useLanguage } from '@/lib/language-context'
 
 export function WorkProcess() {
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t, language } = useLanguage()
+
+  const processes = [
+    {
+      phaseKey: 'process.assessment.phase',
+      titleKey: 'process.assessment.title',
+      descriptionKey: 'process.assessment.description',
+      icon: Search,
+      color: 'from-[#50af9b] to-[#3b9482]',
+      delay: '0'
+    },
+    {
+      phaseKey: 'process.implementation.phase',
+      titleKey: 'process.implementation.title',
+      descriptionKey: 'process.implementation.description',
+      icon: Settings,
+      color: 'from-[#60c9b3] to-[#50af9b]',
+      delay: '200'
+    },
+    {
+      phaseKey: 'process.monitoring.phase',
+      titleKey: 'process.monitoring.title',
+      descriptionKey: 'process.monitoring.description',
+      icon: Shield,
+      color: 'from-[#70d9c3] to-[#60c9b3]',
+      delay: '400'
+    }
+  ]
 
   return (
     <section id="services" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-card/30" ref={elementRef}>
@@ -43,14 +45,16 @@ export function WorkProcess() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            Our Work <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">Process</span>
+            {language === 'en' && t('process.title')}
+            {t('process.title') && t('process.title.highlight') && ' '}
+            {t('process.title.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('process.title.highlight')}</span>}
           </h2>
           <p 
             className={`text-lg text-foreground/60 max-w-2xl mx-auto transition-all duration-1000 delay-200 ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            A proven methodology to secure your enterprise infrastructure
+            {t('process.subtitle')}
           </p>
         </div>
 
@@ -78,7 +82,7 @@ export function WorkProcess() {
                 <div className="relative bg-card border border-border/40 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 h-full">
                   {/* Phase Number */}
                   <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${process.color} text-white font-bold text-xl mb-6 relative z-10`}>
-                    {process.phase}
+                    {t(process.phaseKey)}
                   </div>
 
                   {/* Icon */}
@@ -88,19 +92,19 @@ export function WorkProcess() {
 
                   {/* Title */}
                   <h3 className="text-2xl font-bold text-foreground mb-4">
-                    {process.title}
+                    {t(process.titleKey)}
                   </h3>
 
                   {/* Description */}
                   <p className="text-foreground/60 leading-relaxed">
-                    {process.description}
+                    {t(process.descriptionKey)}
                   </p>
 
                   {/* Decorative Arrow */}
                   {idx < processes.length - 1 && (
-                    <div className="hidden md:block absolute top-1/4 -right-4 w-8 h-8">
-                      <svg className="w-full h-full text-primary/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    <div className="hidden md:block absolute top-1/2 -translate-y-1/2 w-8 h-8 ltr:-right-8 rtl:-left-8">
+                      <svg className={`w-full h-full text-primary/30 group-hover:text-primary/50 transition-colors duration-300 ${language === 'ar' ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7 7 7-7 7" />
                       </svg>
                     </div>
                   )}
@@ -117,10 +121,10 @@ export function WorkProcess() {
           }`}
         >
           <p className="text-foreground/60 mb-6">
-            Ready to strengthen your security posture?
+            {t('process.cta.text')}
           </p>
           <button className="px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105">
-            Start Your Assessment
+            {t('process.cta.button')}
           </button>
         </div>
       </div>

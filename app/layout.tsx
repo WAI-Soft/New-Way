@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, Cairo } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
+import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
 
 const geist = Geist({ 
@@ -11,6 +12,10 @@ const geist = Geist({
 const geistMono = Geist_Mono({ 
   subsets: ["latin"],
   variable: '--font-mono'
+});
+const cairo = Cairo({ 
+  subsets: ["arabic", "latin"],
+  variable: '--font-cairo'
 });
 
 export const metadata: Metadata = {
@@ -36,17 +41,19 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`} suppressHydrationWarning>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <Analytics />
-        </ThemeProvider>
+    <html suppressHydrationWarning>
+      <body className={`${geist.variable} ${geistMono.variable} ${cairo.variable} font-sans font-medium antialiased`} suppressHydrationWarning>
+        <LanguageProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+            <Analytics />
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   )

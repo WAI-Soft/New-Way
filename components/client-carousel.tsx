@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { useLanguage } from '@/lib/language-context'
 
 const clients = [
   {
@@ -73,8 +74,9 @@ const clients = [
 export function ClientCarousel() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [rotation, setRotation] = useState(0)
-  const [isAutoPlay, setIsAutoPlay] = useState(true)
+  const [isAutoPlay] = useState(true)
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t, dir, language } = useLanguage()
 
   const anglePerCard = 360 / clients.length
 
@@ -83,14 +85,17 @@ export function ClientCarousel() {
 
     const interval = setInterval(() => {
       setActiveIndex((prev) => {
-        const nextIndex = (prev + 1) % clients.length
+        // Reverse direction in RTL mode
+        const nextIndex = dir === 'rtl' 
+          ? (prev - 1 + clients.length) % clients.length
+          : (prev + 1) % clients.length
         setRotation(nextIndex * anglePerCard)
         return nextIndex
       })
     }, 4000) // Change every 4 seconds
 
     return () => clearInterval(interval)
-  }, [isAutoPlay, anglePerCard])
+  }, [isAutoPlay, anglePerCard, dir])
 
   const handleCardClick = (index: number) => {
     setActiveIndex(index)
@@ -106,9 +111,11 @@ export function ClientCarousel() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
         }`}>
           <h2 className="text-4xl sm:text-5xl font-bold text-balance mb-4">
-            Our <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">Clients</span>
+            {language === 'en' && t('clients.title')}
+            {t('clients.title') && t('clients.title.highlight') && ' '}
+            {t('clients.title.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('clients.title.highlight')}</span>}
           </h2>
-          <p className="text-lg text-foreground/60">Trusted by leading enterprises worldwide</p>
+          <p className="text-lg text-foreground/60">{t('clients.subtitle')}</p>
         </div>
 
         {/* 3D Carousel Container */}
@@ -129,7 +136,7 @@ export function ClientCarousel() {
                       isActive ? 'z-10 scale-100' : 'z-0 scale-75 opacity-50 hover:opacity-75'
                     }`}
                     style={{
-                      transform: `rotateY(${angle - rotation}deg) translateZ(${distance}px)`,
+                      transform: `rotateY(${dir === 'rtl' ? -(angle - rotation) : (angle - rotation)}deg) translateZ(${distance}px)`,
                       transformStyle: 'preserve-3d',
                       left: '50%',
                       top: '50%',

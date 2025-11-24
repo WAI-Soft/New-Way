@@ -2,24 +2,25 @@
 
 import Image from 'next/image'
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { useLanguage } from '@/lib/language-context'
 
 const partnersByCategory = {
-  Security: [
+  security: [
     { id: 1, name: 'Partner 1', logo: '/partners/1.png' },
     { id: 5, name: 'Partner 5', logo: '/partners/5.png' },
     { id: 9, name: 'Partner 9', logo: '/partners/9.png' },
   ],
-  Cloud: [
+  cloud: [
     { id: 2, name: 'Partner 2', logo: '/partners/2.png' },
     { id: 6, name: 'Partner 6', logo: '/partners/6.png' },
     { id: 10, name: 'Partner 10', logo: '/partners/10.png' },
   ],
-  'Identity Management': [
+  identity: [
     { id: 3, name: 'Partner 3', logo: '/partners/3.png' },
     { id: 7, name: 'Partner 7', logo: '/partners/7.png' },
     { id: 11, name: 'Partner 11', logo: '/partners/11.png' },
   ],
-  Integration: [
+  integration: [
     { id: 4, name: 'Partner 4', logo: '/partners/4.png' },
     { id: 8, name: 'Partner 8', logo: '/partners/8.png' },
     { id: 12, name: 'Partner 12', logo: '/partners/12.png' },
@@ -28,6 +29,7 @@ const partnersByCategory = {
 
 export function PartnerCategory() {
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t } = useLanguage()
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-muted/30" ref={elementRef}>
@@ -39,10 +41,10 @@ export function PartnerCategory() {
           }`}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Partners by Category
+            {t('partners.category.title')}
           </h2>
           <p className="text-lg text-foreground/60 max-w-3xl mx-auto">
-            Organized by expertise to deliver specialized solutions
+            {t('partners.category.subtitle')}
           </p>
         </div>
 
@@ -60,10 +62,10 @@ export function PartnerCategory() {
               <div className="mb-8">
                 <div className="flex items-center gap-4 mb-4">
                   <h3 className="text-2xl font-bold bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">
-                    {category}
+                    {t(`partners.category.${category}`)}
                   </h3>
                   <span className="px-4 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full border border-primary/20">
-                    {partners.length} Partners
+                    {partners.length} {t('partners.category.partnersCount')}
                   </span>
                 </div>
                 <div className="h-1 w-24 bg-gradient-to-r from-primary to-cyan-400 rounded-full" />

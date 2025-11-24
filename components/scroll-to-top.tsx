@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { ArrowUp } from 'lucide-react'
+import { useLanguage } from '@/lib/language-context'
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false)
+  const { dir } = useLanguage()
 
   useEffect(() => {
     // Scroll to top on page load/refresh
@@ -38,7 +40,9 @@ export function ScrollToTop() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-110 group"
+          className={`fixed bottom-8 z-50 p-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-110 group ${
+            dir === 'rtl' ? 'left-8' : 'right-8'
+          }`}
           aria-label="Scroll to top"
         >
           <ArrowUp 

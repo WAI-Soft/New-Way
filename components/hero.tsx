@@ -3,9 +3,11 @@
 import { useEffect, useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { AuroraBackground } from '@/components/ui/aurora-background'
+import { useLanguage } from '@/lib/language-context'
 
 export function Hero() {
   const [isLoaded, setIsLoaded] = useState(false)
+  const { t, dir } = useLanguage()
 
   useEffect(() => {
     setIsLoaded(true)
@@ -21,9 +23,9 @@ export function Hero() {
           }`}
         >
           <span className="block bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent mt-5">
-            Secure Your Digital Future
+            {t('hero.title.line1')}
           </span>
-          <span className="block text-foreground mt-2">With Advanced Cybersecurity Solutions</span>
+          <span className="block text-foreground mt-2">{t('hero.title.line2')}</span>
         </h1>
 
         {/* Subheading */}
@@ -32,7 +34,7 @@ export function Hero() {
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          Protect your enterprise with cutting-edge identity management, threat detection, and zero-trust security infrastructure designed for modern businesses.
+          {t('hero.subtitle')}
         </p>
 
         {/* CTA Buttons */}
@@ -42,11 +44,11 @@ export function Hero() {
           }`}
         >
           <button className="px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 group">
-            Get Started
-            <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+            {t('hero.cta.getStarted')}
+            <ArrowRight className={`group-hover:${dir === 'rtl' ? '-translate-x-1' : 'translate-x-1'} transition-transform ${dir === 'rtl' ? 'rotate-180' : ''}`} size={20} />
           </button>
           <button className="px-8 py-4 border border-border/40 text-foreground rounded-lg font-semibold hover:bg-foreground/5 transition-colors">
-            Learn More
+            {t('hero.cta.learnMore')}
           </button>
         </div>
       </div>

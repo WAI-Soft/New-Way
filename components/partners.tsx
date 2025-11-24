@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { useLanguage } from '@/lib/language-context'
 
 const partnerLogos = [
   { name: 'Partner 1', logo: '/partners/1.png' },
@@ -24,16 +25,22 @@ export function Partners() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isAutoPlay, setIsAutoPlay] = useState(true)
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t, dir } = useLanguage()
 
   useEffect(() => {
     if (!isAutoPlay) return
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % totalSlides)
+      setCurrentSlide((prev) => {
+        // Reverse direction in RTL mode
+        return dir === 'rtl'
+          ? (prev - 1 + totalSlides) % totalSlides
+          : (prev + 1) % totalSlides
+      })
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [isAutoPlay, totalSlides])
+  }, [isAutoPlay, totalSlides, dir])
 
   return (
     <section id="partners" className="py-24 px-4 sm:px-6 lg:px-8" ref={elementRef}>
@@ -42,9 +49,9 @@ export function Partners() {
         <div className={`text-center mb-16 transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
         }`}>
-          <h2 className="text-4xl sm:text-5xl font-bold text-balance mb-4">Trusted by Industry Leaders</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold text-balance mb-4">{t('partners.title')}</h2>
           <p className="text-lg text-foreground/60">
-            Over 500 enterprises partner with us to drive innovation
+            {t('partners.subtitle')}
           </p>
         </div>
 
@@ -53,7 +60,7 @@ export function Partners() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
         }`}>
           <div className="overflow-hidden rounded-lg">
-            <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            <div className="flex transition-transform duration-700 ease-in-out" style={{ transform: dir === 'rtl' ? `translateX(${currentSlide * 100}%)` : `translateX(-${currentSlide * 100}%)` }}>
               {Array.from({ length: totalSlides }).map((_, slideIdx) => (
                 <div key={slideIdx} className="min-w-full">
                   <div 

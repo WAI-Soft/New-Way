@@ -3,9 +3,11 @@
 import Link from 'next/link'
 import { Mail, Phone, MapPin, Linkedin, Facebook, Twitter } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { useLanguage } from '@/lib/language-context'
 
 export function ContactInfo() {
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t } = useLanguage()
 
   return (
     <div
@@ -15,9 +17,9 @@ export function ContactInfo() {
       }`}
     >
       <div className="bg-card border border-border/40 rounded-2xl p-8">
-        <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+        <h2 className="text-2xl font-bold mb-6">{t('contact.info.title')}</h2>
         <p className="text-foreground/60 mb-8">
-          We're here to help and answer any questions you might have. We look forward to hearing from you.
+          {t('contact.info.description')}
         </p>
 
         {/* Contact Details */}
@@ -28,7 +30,7 @@ export function ContactInfo() {
               <Mail className="text-primary" size={20} />
             </div>
             <div>
-              <h3 className="font-semibold mb-1">Email</h3>
+              <h3 className="font-semibold mb-1">{t('contact.info.email')}</h3>
               <a
                 href="mailto:hello@newway.com"
                 className="text-foreground/60 hover:text-primary transition-colors"
@@ -44,7 +46,7 @@ export function ContactInfo() {
               <Phone className="text-primary" size={20} />
             </div>
             <div>
-              <h3 className="font-semibold mb-1">Phone</h3>
+              <h3 className="font-semibold mb-1">{t('contact.info.phone')}</h3>
               <a
                 href="tel:+15551234567"
                 className="text-foreground/60 hover:text-primary transition-colors"
@@ -60,11 +62,11 @@ export function ContactInfo() {
               <MapPin className="text-primary" size={20} />
             </div>
             <div>
-              <h3 className="font-semibold mb-1">Office</h3>
+              <h3 className="font-semibold mb-1">{t('contact.info.office')}</h3>
               <p className="text-foreground/60">
-                123 Market Street, Suite 500<br />
-                San Francisco, CA 94103<br />
-                United States
+                {t('contact.info.address.line1')}<br />
+                {t('contact.info.address.line2')}<br />
+                {t('contact.info.address.line3')}
               </p>
             </div>
           </div>
@@ -75,7 +77,7 @@ export function ContactInfo() {
 
         {/* Social Media Links */}
         <div>
-          <h3 className="font-semibold mb-4">Follow Us</h3>
+          <h3 className="font-semibold mb-4">{t('footer.followUs')}</h3>
           <div className="flex gap-3">
             <Link
               href="https://www.linkedin.com/company/newway-solutions-llc"
@@ -109,19 +111,19 @@ export function ContactInfo() {
 
         {/* Business Hours */}
         <div className="mt-8 pt-8 border-t border-border/40">
-          <h3 className="font-semibold mb-4">Business Hours</h3>
+          <h3 className="font-semibold mb-4">{t('contact.hours.title')}</h3>
           <div className="space-y-2 text-sm text-foreground/60">
             <div className="flex justify-between">
-              <span>Monday - Friday</span>
-              <span className="font-medium text-foreground">9:00 AM - 6:00 PM</span>
+              <span>{t('contact.hours.weekdays')}</span>
+              <span className="font-medium text-foreground">{t('contact.hours.weekdays.time')}</span>
             </div>
             <div className="flex justify-between">
-              <span>Saturday</span>
-              <span className="font-medium text-foreground">10:00 AM - 4:00 PM</span>
+              <span>{t('contact.hours.saturday')}</span>
+              <span className="font-medium text-foreground">{t('contact.hours.saturday.time')}</span>
             </div>
             <div className="flex justify-between">
-              <span>Sunday</span>
-              <span className="font-medium text-foreground">Closed</span>
+              <span>{t('contact.hours.sunday')}</span>
+              <span className="font-medium text-foreground">{t('contact.hours.sunday.time')}</span>
             </div>
           </div>
         </div>

@@ -1,43 +1,45 @@
 'use client'
 
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { useLanguage } from '@/lib/language-context'
 import { Shield, Zap, Award, Users, Globe, TrendingUp } from 'lucide-react'
 
 const benefits = [
   {
     icon: Shield,
-    title: 'Enhanced Security',
-    description: 'Access to cutting-edge security technologies and best practices from industry leaders, ensuring robust protection for your enterprise.',
+    titleKey: 'partners.benefit.security.title',
+    descriptionKey: 'partners.benefit.security.description',
   },
   {
     icon: Zap,
-    title: 'Faster Implementation',
-    description: 'Streamlined deployment processes and pre-integrated solutions reduce time-to-value and accelerate your digital transformation.',
+    titleKey: 'partners.benefit.implementation.title',
+    descriptionKey: 'partners.benefit.implementation.description',
   },
   {
     icon: Award,
-    title: 'Certified Expertise',
-    description: 'Our team holds certifications from all major partners, guaranteeing expert implementation and ongoing support.',
+    titleKey: 'partners.benefit.expertise.title',
+    descriptionKey: 'partners.benefit.expertise.description',
   },
   {
     icon: Users,
-    title: 'Collaborative Support',
-    description: 'Direct access to partner resources and technical support teams for complex implementations and troubleshooting.',
+    titleKey: 'partners.benefit.support.title',
+    descriptionKey: 'partners.benefit.support.description',
   },
   {
     icon: Globe,
-    title: 'Global Reach',
-    description: 'Leverage worldwide partner networks to support your operations across multiple regions and time zones.',
+    titleKey: 'partners.benefit.reach.title',
+    descriptionKey: 'partners.benefit.reach.description',
   },
   {
     icon: TrendingUp,
-    title: 'Innovation Access',
-    description: 'Early access to new features, beta programs, and emerging technologies to keep your organization ahead of the curve.',
+    titleKey: 'partners.benefit.innovation.title',
+    descriptionKey: 'partners.benefit.innovation.description',
   },
 ]
 
 export function PartnershipBenefits() {
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t } = useLanguage()
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8" ref={elementRef}>
@@ -49,10 +51,10 @@ export function PartnershipBenefits() {
           }`}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Partnership Benefits
+            {t('partners.benefits.title')}
           </h2>
           <p className="text-lg text-foreground/60 max-w-3xl mx-auto">
-            Our strategic partnerships deliver tangible value to your organization
+            {t('partners.benefits.subtitle')}
           </p>
         </div>
 
@@ -62,7 +64,7 @@ export function PartnershipBenefits() {
             const Icon = benefit.icon
             return (
               <div
-                key={benefit.title}
+                key={benefit.titleKey}
                 className={`transition-all duration-1000 ${
                   isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
                 }`}
@@ -77,9 +79,9 @@ export function PartnershipBenefits() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
+                  <h3 className="text-xl font-bold mb-3">{t(benefit.titleKey)}</h3>
                   <p className="text-foreground/60 leading-relaxed">
-                    {benefit.description}
+                    {t(benefit.descriptionKey)}
                   </p>
                 </div>
               </div>
@@ -95,16 +97,16 @@ export function PartnershipBenefits() {
         >
           <div className="bg-gradient-to-r from-primary/10 via-cyan-400/10 to-primary/10 border border-primary/20 rounded-2xl p-8 sm:p-12">
             <h3 className="text-2xl sm:text-3xl font-bold mb-4">
-              Ready to Leverage Our Partnerships?
+              {t('partners.cta.title')}
             </h3>
             <p className="text-lg text-foreground/60 mb-8 max-w-2xl mx-auto">
-              Let's discuss how our technology partnerships can benefit your organization
+              {t('partners.cta.subtitle')}
             </p>
             <a
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/50"
             >
-              Contact Us
+              {t('partners.cta.button')}
               <svg
                 className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                 fill="none"

@@ -2,9 +2,11 @@
 
 import { MapPin } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { useLanguage } from '@/lib/language-context'
 
 export function LocationMap() {
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t } = useLanguage()
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-foreground/5">
@@ -18,11 +20,11 @@ export function LocationMap() {
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
               <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">
-                Our Location
+                {t('contact.location.title')}
               </span>
             </h2>
             <p className="text-foreground/60 max-w-2xl mx-auto">
-              Visit us at our San Francisco office or reach out through any of our contact channels.
+              {t('contact.location.subtitle')}
             </p>
           </div>
 
@@ -34,30 +36,30 @@ export function LocationMap() {
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                     <MapPin className="text-primary" size={24} />
                   </div>
-                  <h3 className="text-xl font-bold">Office Address</h3>
+                  <h3 className="text-xl font-bold">{t('contact.location.officeAddress')}</h3>
                 </div>
                 
                 <div className="space-y-4">
                   <div>
-                    <p className="font-semibold mb-1">New Way Solutions</p>
+                    <p className="font-semibold mb-1">{t('contact.location.companyName')}</p>
                     <p className="text-foreground/60 text-sm leading-relaxed">
-                      123 Market Street, Suite 500<br />
-                      San Francisco, CA 94103<br />
-                      United States
+                      {t('contact.info.address.line1')}<br />
+                      {t('contact.info.address.line2')}<br />
+                      {t('contact.info.address.line3')}
                     </p>
                   </div>
 
                   <div className="pt-4 border-t border-border/40">
-                    <h4 className="font-semibold mb-2 text-sm">Getting Here</h4>
+                    <h4 className="font-semibold mb-2 text-sm">{t('contact.location.gettingHere')}</h4>
                     <p className="text-foreground/60 text-sm leading-relaxed">
-                      We're located in the heart of San Francisco's Financial District, easily accessible by BART, Muni, and major highways.
+                      {t('contact.location.gettingHere.description')}
                     </p>
                   </div>
 
                   <div className="pt-4 border-t border-border/40">
-                    <h4 className="font-semibold mb-2 text-sm">Parking</h4>
+                    <h4 className="font-semibold mb-2 text-sm">{t('contact.location.parking')}</h4>
                     <p className="text-foreground/60 text-sm leading-relaxed">
-                      Visitor parking is available in the building garage. Street parking and nearby public garages are also available.
+                      {t('contact.location.parking.description')}
                     </p>
                   </div>
                 </div>
@@ -73,7 +75,7 @@ export function LocationMap() {
                     <MapPin className="text-primary mx-auto mb-4" size={48} />
                     <h3 className="text-xl font-bold mb-2">San Francisco, CA</h3>
                     <p className="text-foreground/60 mb-6">
-                      123 Market Street, Suite 500
+                      {t('contact.info.address.line1')}
                     </p>
                     <a
                       href="https://www.google.com/maps/search/?api=1&query=123+Market+Street+San+Francisco+CA+94103"
@@ -82,7 +84,7 @@ export function LocationMap() {
                       className="inline-flex items-center gap-2 bg-gradient-to-r from-[#50af9b] to-[#3b9482] text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105"
                     >
                       <MapPin size={20} />
-                      Open in Google Maps
+                      {t('contact.location.mapButton')}
                     </a>
                   </div>
                 </div>

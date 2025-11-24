@@ -3,91 +3,97 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { useLanguage } from '@/lib/language-context'
 
 interface Client {
-  name: string
+  nameKey: string
   logo: string
-  category: string
-  description: string
+  categoryKey: string
+  descriptionKey: string
 }
 
-const clients: Client[] = [
+const clientsData: Client[] = [
   { 
-    name: 'Ministry of Foreign Affairs', 
+    nameKey: 'clients.mofa.name',
     logo: '/clients/MOFA.png',
-    category: 'Government',
-    description: 'Leading government institution implementing advanced security solutions for diplomatic services and international relations.'
+    categoryKey: 'clients.category.government',
+    descriptionKey: 'clients.mofa.description'
   },
   { 
-    name: 'Ministry of Interior', 
+    nameKey: 'clients.moi.name',
     logo: '/clients/MOI.png',
-    category: 'Government',
-    description: 'National security agency deploying cutting-edge cybersecurity infrastructure for public safety and national defense.'
+    categoryKey: 'clients.category.government',
+    descriptionKey: 'clients.moi.description'
   },
   { 
-    name: 'National Guard Health Affairs', 
+    nameKey: 'clients.ngha.name',
     logo: '/clients/National_Guard_Health_Affairs.png',
-    category: 'Healthcare',
-    description: 'Premier healthcare provider delivering patient-centric medical services with advanced security and compliance solutions.'
+    categoryKey: 'clients.category.healthcare',
+    descriptionKey: 'clients.ngha.description'
   },
   { 
-    name: 'KSMC', 
+    nameKey: 'clients.ksmc.name',
     logo: '/clients/KSMC.png',
-    category: 'Healthcare',
-    description: 'Leading medical center providing specialized healthcare services with state-of-the-art security infrastructure.'
+    categoryKey: 'clients.category.healthcare',
+    descriptionKey: 'clients.ksmc.description'
   },
   { 
-    name: 'Saudi Payments', 
+    nameKey: 'clients.saudiPayments.name',
     logo: '/clients/Saudi_Payments.png',
-    category: 'Financial Services',
-    description: 'Financial institution providing secure payment solutions with advanced fraud detection and data protection systems.'
+    categoryKey: 'clients.category.financial',
+    descriptionKey: 'clients.saudiPayments.description'
   },
   { 
-    name: 'STC Solutions', 
+    nameKey: 'clients.stc.name',
     logo: '/clients/STC_Solutions.png',
-    category: 'Technology',
-    description: 'Telecommunications leader implementing enterprise-grade security solutions for digital transformation initiatives.'
+    categoryKey: 'clients.category.technology',
+    descriptionKey: 'clients.stc.description'
   },
   { 
-    name: 'Almajdouie', 
+    nameKey: 'clients.almajdouie.name',
     logo: '/clients/Almajdouie.png',
-    category: 'Logistics',
-    description: 'Logistics company securing supply chain operations with comprehensive cybersecurity and monitoring solutions.'
+    categoryKey: 'clients.category.logistics',
+    descriptionKey: 'clients.almajdouie.description'
   },
   { 
-    name: 'Education & Training', 
+    nameKey: 'clients.education.name',
     logo: '/clients/Education__Training.png',
-    category: 'Education',
-    description: 'Educational institution transforming learning with secure online platforms and personalized student experiences.'
+    categoryKey: 'clients.category.education',
+    descriptionKey: 'clients.education.description'
   },
   { 
-    name: 'PSBAU', 
+    nameKey: 'clients.psbau.name',
     logo: '/clients/PSBAU.png',
-    category: 'Education',
-    description: 'University implementing advanced security solutions for research data protection and campus-wide infrastructure.'
+    categoryKey: 'clients.category.education',
+    descriptionKey: 'clients.psbau.description'
   },
   { 
-    name: 'Momrah', 
+    nameKey: 'clients.momrah.name',
     logo: '/clients/Momrah.png',
-    category: 'Government',
-    description: 'Municipal affairs authority deploying smart city security solutions for urban development and public services.'
+    categoryKey: 'clients.category.government',
+    descriptionKey: 'clients.momrah.description'
   },
   { 
-    name: 'MOIMR', 
+    nameKey: 'clients.moimr.name',
     logo: '/clients/MOIMR.png',
-    category: 'Government',
-    description: 'Government agency implementing secure digital platforms for administrative services and citizen engagement.'
+    categoryKey: 'clients.category.government',
+    descriptionKey: 'clients.moimr.description'
   },
   { 
-    name: 'NeC', 
+    nameKey: 'clients.nec.name',
     logo: '/clients/NeC.png',
-    category: 'Technology',
-    description: 'Technology company delivering innovative security solutions for enterprise digital transformation projects.'
+    categoryKey: 'clients.category.technology',
+    descriptionKey: 'clients.nec.description'
   },
 ]
 
 function ClientCard({ client, index, isVisible }: { client: Client; index: number; isVisible: boolean }) {
   const [isFlipped, setIsFlipped] = useState(false)
+  const { t } = useLanguage()
+
+  const name = t(client.nameKey)
+  const category = t(client.categoryKey)
+  const description = t(client.descriptionKey)
 
   return (
     <div
@@ -119,7 +125,7 @@ function ClientCard({ client, index, isVisible }: { client: Client; index: numbe
               <div className="w-16 h-16 rounded-xl bg-white flex items-center justify-center mb-4 p-3 border border-border/20 shadow-sm">
                 <Image
                   src={client.logo}
-                  alt={client.name}
+                  alt={name}
                   width={60}
                   height={60}
                   className="object-contain w-full h-full filter brightness-100"
@@ -128,19 +134,19 @@ function ClientCard({ client, index, isVisible }: { client: Client; index: numbe
 
               {/* Company name */}
               <h3 className="text-xl font-bold text-foreground mb-3">
-                {client.name}
+                {name}
               </h3>
 
               {/* Category tag */}
               <div className="mb-4">
                 <span className="inline-block px-3 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20">
-                  {client.category}
+                  {category}
                 </span>
               </div>
 
               {/* Description */}
               <p className="text-sm text-foreground/60 leading-relaxed flex-grow">
-                {client.description}
+                {description}
               </p>
             </div>
           </div>
@@ -150,7 +156,7 @@ function ClientCard({ client, index, isVisible }: { client: Client; index: numbe
             <div className="bg-white border border-primary/30 rounded-2xl p-8 h-full flex items-center justify-center shadow-xl">
               <Image
                 src={client.logo}
-                alt={client.name}
+                alt={name}
                 width={250}
                 height={250}
                 className="object-contain max-w-full max-h-full"
@@ -165,6 +171,7 @@ function ClientCard({ client, index, isVisible }: { client: Client; index: numbe
 
 export function ClientGrid() {
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t } = useLanguage()
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-card/20" ref={elementRef}>
@@ -176,16 +183,18 @@ export function ClientGrid() {
           }`}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Our <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">Clients</span>
+            {t('clients.grid.title')}
+            {t('clients.grid.title') && t('clients.grid.highlight') && ' '}
+            {t('clients.grid.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('clients.grid.highlight')}</span>}
           </h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            Trusted by leading organizations across government, healthcare, finance, and technology sectors
+            {t('clients.grid.subtitle')}
           </p>
         </div>
 
         {/* Client cards grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {clients.map((client, index) => (
+          {clientsData.map((client, index) => (
             <ClientCard key={index} client={client} index={index} isVisible={isVisible} />
           ))}
         </div>

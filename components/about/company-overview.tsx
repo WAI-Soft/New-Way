@@ -1,9 +1,11 @@
 'use client'
 
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { useLanguage } from '@/lib/language-context'
 
 export function CompanyOverview() {
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t } = useLanguage()
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8" ref={elementRef}>
@@ -15,34 +17,29 @@ export function CompanyOverview() {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
             }`}
           >
-            {/* Teal accent line */}
-            <div className="border-l-4 border-primary pl-6 mb-8">
+            {/* Teal accent line - RTL aware */}
+            <div className="border-s-4 border-primary ps-6 mb-8 rtl:border-s-0 rtl:border-e-4 rtl:ps-0 rtl:pe-6">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                Our <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">Mission</span>
+                {t('about.overview.mission.title')}
+                {t('about.overview.mission.title') && t('about.overview.mission.highlight') && ' '}
+                {t('about.overview.mission.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('about.overview.mission.highlight')}</span>}
               </h2>
               <p className="text-lg text-foreground/80 leading-relaxed">
-                To empower organizations with cutting-edge cybersecurity and IT solutions that protect their digital assets and enable business growth.
+                {t('about.overview.mission.text')}
               </p>
             </div>
 
             <div className="space-y-6">
               <p className="text-foreground/70 leading-relaxed">
-                New Way Solutions is a leading provider of enterprise security and identity management solutions. 
-                With over a decade of experience, we specialize in helping organizations secure their digital 
-                infrastructure through innovative technologies and best practices.
+                {t('about.overview.intro')}
               </p>
               
               <p className="text-foreground/70 leading-relaxed">
-                Our team of certified security professionals works closely with clients to understand their unique 
-                challenges and deliver tailored solutions that meet their specific needs. From identity and access 
-                management to comprehensive cybersecurity strategies, we provide end-to-end services that ensure 
-                your organization stays protected in an ever-evolving threat landscape.
+                {t('about.overview.team')}
               </p>
 
               <p className="text-foreground/70 leading-relaxed">
-                We partner with industry-leading technology providers to deliver best-in-class solutions that 
-                integrate seamlessly with your existing infrastructure. Our commitment to excellence and customer 
-                satisfaction has made us a trusted partner for organizations across various industries.
+                {t('about.overview.partners')}
               </p>
             </div>
           </div>
@@ -67,9 +64,9 @@ export function CompanyOverview() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Trusted Expertise</h3>
+                      <h3 className="text-xl font-semibold mb-2">{t('about.overview.expertise.title')}</h3>
                       <p className="text-foreground/60">
-                        Over 10 years of experience delivering enterprise security solutions
+                        {t('about.overview.expertise.description')}
                       </p>
                     </div>
                   </div>
@@ -81,9 +78,9 @@ export function CompanyOverview() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Client-Focused</h3>
+                      <h3 className="text-xl font-semibold mb-2">{t('about.overview.clientFocus.title')}</h3>
                       <p className="text-foreground/60">
-                        Dedicated to understanding and solving your unique security challenges
+                        {t('about.overview.clientFocus.description')}
                       </p>
                     </div>
                   </div>
@@ -95,9 +92,9 @@ export function CompanyOverview() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2">Innovation Driven</h3>
+                      <h3 className="text-xl font-semibold mb-2">{t('about.overview.innovation.title')}</h3>
                       <p className="text-foreground/60">
-                        Leveraging cutting-edge technologies to stay ahead of emerging threats
+                        {t('about.overview.innovation.description')}
                       </p>
                     </div>
                   </div>

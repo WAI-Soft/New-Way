@@ -2,48 +2,50 @@
 
 import { Shield, Key, Lock, FileText, Smartphone, ShieldCheck } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
-
-const services = [
-  {
-    icon: Key,
-    title: 'Identity & Access Management (IAM)',
-    description: "In today's digital landscape, securing access to your critical systems and data is more important than ever",
-    gradient: 'from-blue-500 to-cyan-500',
-  },
-  {
-    icon: Shield,
-    title: 'Single Sign-On (SSO)',
-    description: 'Managing multiple passwords for different applications can be a hassle for users and a security risk for organizations',
-    gradient: 'from-cyan-500 to-teal-500',
-  },
-  {
-    icon: Lock,
-    title: 'Privilege Access Management (PAM)',
-    description: "Securing access to sensitive systems and data is critical in today's cybersecurity landscape, and that's where Privilege Access Management (PAM) comes in",
-    gradient: 'from-teal-500 to-green-500',
-  },
-  {
-    icon: FileText,
-    title: 'Log Management',
-    description: "Managing logs is a critical aspect of any organization's cybersecurity and compliance strategy",
-    gradient: 'from-green-500 to-emerald-500',
-  },
-  {
-    icon: Smartphone,
-    title: 'Multi-Factor Authentication (MFA)',
-    description: "In today's digital world, passwords alone are no longer enough to secure sensitive data and systems",
-    gradient: 'from-emerald-500 to-cyan-500',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'Cybersecurity',
-    description: 'In an age where cyber threats are constantly evolving, ensuring the protection of your digital assets is more important than ever',
-    gradient: 'from-cyan-500 to-blue-500',
-  },
-]
+import { useLanguage } from '@/lib/language-context'
 
 export function Services() {
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t, language } = useLanguage()
+
+  const services = [
+    {
+      icon: Key,
+      titleKey: 'services.iam.title',
+      descriptionKey: 'services.iam.description',
+      gradient: 'from-blue-500 to-cyan-500',
+    },
+    {
+      icon: Shield,
+      titleKey: 'services.sso.title',
+      descriptionKey: 'services.sso.description',
+      gradient: 'from-cyan-500 to-teal-500',
+    },
+    {
+      icon: Lock,
+      titleKey: 'services.pam.title',
+      descriptionKey: 'services.pam.description',
+      gradient: 'from-teal-500 to-green-500',
+    },
+    {
+      icon: FileText,
+      titleKey: 'services.log.title',
+      descriptionKey: 'services.log.description',
+      gradient: 'from-green-500 to-emerald-500',
+    },
+    {
+      icon: Smartphone,
+      titleKey: 'services.mfa.title',
+      descriptionKey: 'services.mfa.description',
+      gradient: 'from-emerald-500 to-cyan-500',
+    },
+    {
+      icon: ShieldCheck,
+      titleKey: 'services.cybersecurity.title',
+      descriptionKey: 'services.cybersecurity.description',
+      gradient: 'from-cyan-500 to-blue-500',
+    },
+  ]
 
   return (
     <section
@@ -59,10 +61,12 @@ export function Services() {
           }`}
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-balance mb-4">
-            Our <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">Services</span>
+            {language === 'en' && t('services.title')}
+            {t('services.title.highlight') && ' '}
+            {t('services.title.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('services.title.highlight')}</span>}
           </h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
-            Comprehensive security solutions tailored to protect your business
+            {t('services.subtitle')}
           </p>
         </div>
 
@@ -93,16 +97,16 @@ export function Services() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-foreground mb-4">{service.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-4">{t(service.titleKey)}</h3>
 
                 {/* Description */}
-                <p className="text-foreground/60 leading-relaxed flex-grow">{service.description}</p>
+                <p className="text-foreground/60 leading-relaxed flex-grow">{t(service.descriptionKey)}</p>
 
                 {/* Hover Arrow */}
                 <div className="mt-6 flex items-center text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="text-sm font-semibold">Learn more</span>
+                  <span className="text-sm font-semibold">{t('services.learnMore')}</span>
                   <svg
-                    className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                    className="w-4 h-4 ms-2 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { LucideIcon } from 'lucide-react'
 import { ArrowRight } from 'lucide-react'
+import { useLanguage } from '@/lib/language-context'
 
 interface ServiceCardProps {
   slug: string
@@ -14,6 +15,8 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ slug, icon: Icon, title, description, features, gradient }: ServiceCardProps) {
+  const { t, dir } = useLanguage()
+
   return (
     <Link href={`/services/${slug}`} className="group relative w-full h-full block">
       {/* Gradient Border Effect */}
@@ -40,7 +43,7 @@ export function ServiceCard({ slug, icon: Icon, title, description, features, gr
         {features.length > 0 && (
           <ul className="space-y-2 mb-6 flex-grow">
             {features.map((feature, idx) => (
-              <li key={idx} className="flex items-start gap-2 text-sm text-foreground/70">
+              <li key={idx} className={`flex items-start gap-2 text-sm text-foreground/70 ${dir === 'rtl' ? 'flex-row-reverse text-right' : ''}`}>
                 <svg
                   className="w-5 h-5 text-primary flex-shrink-0 mt-0.5"
                   fill="none"
@@ -61,9 +64,9 @@ export function ServiceCard({ slug, icon: Icon, title, description, features, gr
         )}
 
         {/* Learn More Button with Arrow Animation */}
-        <div className="mt-auto flex items-center text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-          <span className="text-sm font-semibold">Learn More</span>
-          <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+        <div className={`mt-auto flex items-center text-primary opacity-0 group-hover:opacity-100 transition-opacity ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
+          <span className="text-sm font-semibold">{t('services.learnMore')}</span>
+          <ArrowRight className={`w-4 h-4 ${dir === 'rtl' ? 'mr-2 rotate-180 group-hover:-translate-x-1' : 'ml-2 group-hover:translate-x-1'} transition-transform`} />
         </div>
       </div>
     </Link>

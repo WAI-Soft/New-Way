@@ -2,9 +2,11 @@
 
 import { ArrowRight } from 'lucide-react'
 import { useScrollAnimation } from '@/hooks/use-scroll-animation'
+import { useLanguage } from '@/lib/language-context'
 
 export function CTA() {
   const { elementRef, isVisible } = useScrollAnimation()
+  const { t, dir } = useLanguage()
   
   return (
     <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8" ref={elementRef}>
@@ -19,19 +21,19 @@ export function CTA() {
           {/* Content */}
           <div className="relative p-12 sm:p-16 text-center">
             <h2 className="text-4xl sm:text-5xl font-bold text-balance mb-6">
-              Ready to Transform Your Business?
+              {t('cta.title')}
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-8">
-              Join hundreds of enterprises that have already experienced the power of New Way Solutions.
+              {t('cta.subtitle')}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 group">
-                Start Your Journey
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+                {t('cta.button.primary')}
+                <ArrowRight className={`group-hover:${dir === 'rtl' ? '-translate-x-1' : 'translate-x-1'} transition-transform ${dir === 'rtl' ? 'rotate-180' : ''}`} size={20} />
               </button>
               <button className="px-8 py-4 border border-border/40 text-foreground rounded-lg font-semibold hover:bg-foreground/5 transition-colors">
-                Schedule a Demo
+                {t('cta.button.secondary')}
               </button>
             </div>
           </div>
