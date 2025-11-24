@@ -263,8 +263,8 @@ export const translations: Translations = {
   'about.page.subtitle': { en: 'Transforming enterprises with innovative solutions and unparalleled expertise', ar: 'تحويل المؤسسات بحلول مبتكرة وخبرة لا مثيل لها' },
 
   // Company Overview
-  'about.overview.mission.title': { en: 'Our', ar: 'مهمتنا' },
-  'about.overview.mission.highlight': { en: 'Mission', ar: '' },
+  'about.overview.mission.title': { en: 'Our', ar: '' },
+  'about.overview.mission.highlight': { en: 'Mission', ar: 'مهمتنا' },
   'about.overview.mission.text': { en: 'To empower organizations with cutting-edge cybersecurity and IT solutions that protect their digital assets and enable business growth.', ar: 'تمكين المؤسسات بحلول الأمن السيبراني وتكنولوجيا المعلومات المتطورة التي تحمي أصولها الرقمية وتمكّن نمو الأعمال.' },
   'about.overview.intro': { en: 'New Way Solutions is a leading provider of enterprise security and identity management solutions. With over a decade of experience, we specialize in helping organizations secure their digital infrastructure through innovative technologies and best practices.', ar: 'حلول الطريق الجديد هي مزود رائد لحلول أمن المؤسسات وإدارة الهوية. مع أكثر من عقد من الخبرة، نتخصص في مساعدة المؤسسات على تأمين بنيتها التحتية الرقمية من خلال التقنيات المبتكرة وأفضل الممارسات.' },
   'about.overview.team': { en: 'Our team of certified security professionals works closely with clients to understand their unique challenges and deliver tailored solutions that meet their specific needs. From identity and access management to comprehensive cybersecurity strategies, we provide end-to-end services that ensure your organization stays protected in an ever-evolving threat landscape.', ar: 'يعمل فريقنا من محترفي الأمن المعتمدين بشكل وثيق مع العملاء لفهم تحدياتهم الفريدة وتقديم حلول مخصصة تلبي احتياجاتهم المحددة. من إدارة الهوية والوصول إلى استراتيجيات الأمن السيبراني الشاملة، نقدم خدمات شاملة تضمن بقاء مؤسستك محمية في مشهد تهديدات متطور باستمرار.' },
@@ -404,12 +404,13 @@ export const translations: Translations = {
   'partners.page.subtitle': { en: 'Collaborating with industry leaders to deliver best-in-class solutions', ar: 'التعاون مع قادة الصناعة لتقديم حلول من الدرجة الأولى' },
   
   // Partner Grid Section
-  'partners.grid.title': { en: 'Our Strategic', ar: 'شركاؤنا الاستراتيجيون' },
-  'partners.grid.highlight': { en: 'Partners', ar: '' },
+  'partners.grid.title': { en: 'Our Strategic', ar: '' },
+  'partners.grid.highlight': { en: 'Partners', ar: 'شركاؤنا الاستراتيجيون' },
   'partners.grid.subtitle': { en: 'We collaborate with industry-leading technology providers to deliver comprehensive solutions', ar: 'نتعاون مع مزودي التكنولوجيا الرائدين في الصناعة لتقديم حلول شاملة' },
   
   // Partner Category Section
-  'partners.category.title': { en: 'Partners by Category', ar: 'الشركاء حسب الفئة' },
+    'partners.category.title': { en: 'Partners by', ar: '' },
+  'partners.category.highlight': { en: 'Category', ar: 'الشركاء حسب الفئة' },
   'partners.category.subtitle': { en: 'Organized by expertise to deliver specialized solutions', ar: 'منظمون حسب الخبرة لتقديم حلول متخصصة' },
   'partners.category.security': { en: 'Security', ar: 'الأمن' },
   'partners.category.cloud': { en: 'Cloud', ar: 'السحابة' },
@@ -418,7 +419,8 @@ export const translations: Translations = {
   'partners.category.partnersCount': { en: 'Partners', ar: 'شركاء' },
   
   // Partnership Benefits Section
-  'partners.benefits.title': { en: 'Partnership Benefits', ar: 'فوائد الشراكة' },
+    'partners.benefits.title': { en: 'Partnership', ar: '' },
+  'partners.benefits.highlight': { en: 'Benefits', ar: 'فوائد الشراكة' },
   'partners.benefits.subtitle': { en: 'Our strategic partnerships deliver tangible value to your organization', ar: 'شراكاتنا الاستراتيجية تقدم قيمة ملموسة لمؤسستك' },
   
   'partners.benefit.security.title': { en: 'Enhanced Security', ar: 'أمان محسّن' },
@@ -465,4 +467,8 @@ export const translations: Translations = {
   'common.none': { en: 'None', ar: 'لا شيء' },
   'common.yes': { en: 'Yes', ar: 'نعم' },
   'common.no': { en: 'No', ar: 'لا' },
+  'about.mvv.title': { en: 'What', ar: '' },
+  'about.mvv.highlight': { en: 'Drives Us', ar: 'ما يحركنا' },
+  'about.faqs.title': { en: 'Frequently Asked', ar: '' },
+  'about.faqs.highlight': { en: 'Questions', ar: 'الأسئلة الشائعة' },
 }

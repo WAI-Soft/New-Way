@@ -26,7 +26,7 @@ const column3 = partners.slice(8, 12)  // Partners 9-12
 
 export function PartnerGrid() {
   const { elementRef, isVisible } = useScrollAnimation()
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-card/20" ref={elementRef}>
@@ -38,8 +38,8 @@ export function PartnerGrid() {
           }`}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            {t('partners.grid.title')}
-            {t('partners.grid.title') && t('partners.grid.highlight') && ' '}
+            {language === 'en' && t('partners.grid.title')}
+            {language === 'en' && t('partners.grid.title') && t('partners.grid.highlight') && ' '}
             {t('partners.grid.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('partners.grid.highlight')}</span>}
           </h2>
           <p className="text-lg text-foreground/60 max-w-3xl mx-auto">

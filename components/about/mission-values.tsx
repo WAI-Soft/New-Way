@@ -6,7 +6,7 @@ import { Target, Eye, Heart } from 'lucide-react'
 
 export function MissionValues() {
   const { elementRef, isVisible } = useScrollAnimation()
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   const mission = {
     title: t('about.mvv.mission.title'),
@@ -48,8 +48,8 @@ export function MissionValues() {
           }`}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-3">
-            {t('about.mvv.title')}
-            {t('about.mvv.title') && t('about.mvv.highlight') && ' '}
+            {language === 'en' && t('about.mvv.title')}
+            {language === 'en' && t('about.mvv.title') && t('about.mvv.highlight') && ' '}
             {t('about.mvv.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('about.mvv.highlight')}</span>}
           </h2>
           <p className="text-base text-foreground/60 max-w-2xl mx-auto">
@@ -96,7 +96,7 @@ export function MissionValues() {
                   </div>
                   
                   <h3 className={`text-2xl sm:text-3xl font-bold mb-4 text-center bg-gradient-to-r ${mission.gradient} bg-clip-text text-transparent`}>
-                    {mission.title}
+                    {t('about.mvv.mission.title')}
                   </h3>
                   <p className="text-foreground/70 text-center leading-relaxed text-sm">
                     {mission.description}
@@ -128,7 +128,7 @@ export function MissionValues() {
                   </div>
                   
                   <h3 className={`text-2xl sm:text-3xl font-bold mb-4 text-center bg-gradient-to-r ${vision.gradient} bg-clip-text text-transparent`}>
-                    {vision.title}
+                    {t('about.mvv.vision.title')}
                   </h3>
                   <p className="text-foreground/70 text-center leading-relaxed text-sm">
                     {vision.description}
@@ -160,7 +160,7 @@ export function MissionValues() {
                   </div>
                   
                   <h3 className={`text-2xl sm:text-3xl font-bold mb-4 text-center bg-gradient-to-r ${values.gradient} bg-clip-text text-transparent`}>
-                    {values.title}
+                    {t('about.mvv.values.title')}
                   </h3>
                   <p className="text-foreground/70 text-center leading-relaxed text-sm">
                     {values.description}

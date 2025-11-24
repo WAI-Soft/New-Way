@@ -5,7 +5,7 @@ import { useLanguage } from '@/lib/language-context'
 
 export function CompanyOverview() {
   const { elementRef, isVisible } = useScrollAnimation()
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
 
   return (
     <section className="py-24 px-4 sm:px-6 lg:px-8" ref={elementRef}>
@@ -20,8 +20,8 @@ export function CompanyOverview() {
             {/* Teal accent line - RTL aware */}
             <div className="border-s-4 border-primary ps-6 mb-8 rtl:border-s-0 rtl:border-e-4 rtl:ps-0 rtl:pe-6">
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-                {t('about.overview.mission.title')}
-                {t('about.overview.mission.title') && t('about.overview.mission.highlight') && ' '}
+                {language === 'en' && t('about.overview.mission.title')}
+                {language === 'en' && t('about.overview.mission.title') && t('about.overview.mission.highlight') && ' '}
                 {t('about.overview.mission.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('about.overview.mission.highlight')}</span>}
               </h2>
               <p className="text-lg text-foreground/80 leading-relaxed">

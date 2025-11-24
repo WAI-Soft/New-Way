@@ -68,7 +68,7 @@ function FAQItem({
 
 export function FAQsSection() {
   const { elementRef, isVisible } = useScrollAnimation()
-  const { t } = useLanguage()
+  const { t, language } = useLanguage()
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   const faqs: FAQ[] = [
@@ -150,8 +150,8 @@ export function FAQsSection() {
           }`}
         >
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            {t('about.faqs.title')}
-            {t('about.faqs.title') && t('about.faqs.highlight') && ' '}
+            {language === 'en' && t('about.faqs.title')}
+            {language === 'en' && t('about.faqs.title') && t('about.faqs.highlight') && ' '}
             {t('about.faqs.highlight') && <span className="bg-gradient-to-r from-primary via-cyan-400 to-primary bg-clip-text text-transparent">{t('about.faqs.highlight')}</span>}
           </h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
