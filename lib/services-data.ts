@@ -40,7 +40,7 @@ export const servicesData: ServiceData[] = [
       'Compliance reporting and audit trails',
       'Integration with existing directories',
     ],
-    gradient: 'from-blue-500 to-cyan-500',
+    gradient: 'from-[#50af9b] to-[#3b9482]',
     image: '/Green-image.png',
     fullDescription: "Our Identity & Access Management (IAM) services help businesses control who can access what, ensuring the right people have the right access at the right time. With a comprehensive IAM solution, you can effectively manage user identities, secure data, and enhance compliance across your entire organization.\n\nAt New Way, we offer a suite of IAM services, including Privilege Access Management (PAM), Multi-Factor Authentication (MFA), Single Sign-On (SSO), and Log Management. These services work together to provide a cohesive approach to identity security, reducing risk while improving productivity and user experience.",
     howItWorks: {
@@ -91,7 +91,7 @@ export const servicesData: ServiceData[] = [
       'Support for SAML, OAuth, and OpenID Connect',
       'Seamless integration with cloud and on-premise apps',
     ],
-    gradient: 'from-cyan-500 to-teal-500',
+    gradient: 'from-[#60c9b3] to-[#50af9b]',
     image: '/Green-image.png',
     fullDescription: "Our Single Sign-On (SSO) solution eliminates the need for users to remember multiple passwords while significantly improving your organization's security posture. By providing a single authentication point, we make it easier for users to access all their applications while maintaining strict security controls.",
     howItWorks: {
@@ -141,7 +141,7 @@ export const servicesData: ServiceData[] = [
       'Automated password rotation',
       'Comprehensive audit and compliance reporting',
     ],
-    gradient: 'from-teal-500 to-green-500',
+    gradient: 'from-[#70d9c3] to-[#60c9b3]',
     image: '/Green-image.png',
     fullDescription: "Privileged accounts are the keys to your kingdom. Our PAM solution ensures these critical accounts are secured, monitored, and audited. We help you control who has access to what, when, and why, reducing the risk of insider threats and external attacks.",
     howItWorks: {
@@ -192,7 +192,7 @@ export const servicesData: ServiceData[] = [
       'Compliance-ready retention policies',
       'Integration with SIEM platforms',
     ],
-    gradient: 'from-green-500 to-emerald-500',
+    gradient: 'from-[#50af9b] to-[#70d9c3]',
     image: '/Green-image.png',
     fullDescription: "Effective log management is crucial for security monitoring, troubleshooting, and compliance. Our solution provides a centralized platform for collecting, analyzing, and retaining log data from all your systems, making it easy to detect threats, investigate incidents, and meet regulatory requirements.",
     howItWorks: {
@@ -243,7 +243,7 @@ export const servicesData: ServiceData[] = [
       'Easy user enrollment and management',
       'Integration with existing systems',
     ],
-    gradient: 'from-emerald-500 to-cyan-500',
+    gradient: 'from-[#3b9482] to-[#60c9b3]',
     image: '/Green-image.png',
     fullDescription: "Multi-Factor Authentication adds critical security layers beyond just passwords. Our MFA solution supports various authentication methods including mobile apps, SMS, email, and biometrics, providing flexibility while maintaining strong security.",
     howItWorks: {
@@ -293,7 +293,7 @@ export const servicesData: ServiceData[] = [
       '24/7 security monitoring',
       'Incident response and recovery',
     ],
-    gradient: 'from-cyan-500 to-blue-500',
+    gradient: 'from-[#60c9b3] to-[#3b9482]',
     image: '/Green-image.png',
     fullDescription: "Our comprehensive cybersecurity services provide end-to-end protection for your organization. From threat detection to incident response, we help you build a robust security posture that adapts to evolving threats.",
     howItWorks: {
