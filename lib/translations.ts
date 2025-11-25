@@ -35,27 +35,27 @@ export const translations: Translations = {
   'services.learnMore': { en: 'Learn more', ar: 'اعرف المزيد' },
 
   // Service Cards
-  'services.iam.title': { en: 'Identity & Access Management (IAM)', ar: 'إدارة الهوية والوصول (IAM)' },
+  'services.iam.title': { en: 'Identity & Access Management (IAM)', ar: 'إدارة الهوية والوصول' },
   'services.iam.description': { 
     en: "In today's digital landscape, securing access to your critical systems and data is more important than ever", 
     ar: 'في المشهد الرقمي اليوم، أصبح تأمين الوصول إلى أنظمتك وبياناتك الحيوية أكثر أهمية من أي وقت مضى' 
   },
-  'services.sso.title': { en: 'Single Sign-On (SSO)', ar: 'تسجيل الدخول الموحد (SSO)' },
+  'services.sso.title': { en: 'Single Sign-On (SSO)', ar: 'تسجيل الدخول الموحد' },
   'services.sso.description': { 
     en: 'Managing multiple passwords for different applications can be a hassle for users and a security risk for organizations', 
     ar: 'إدارة كلمات مرور متعددة لتطبيقات مختلفة يمكن أن تكون مشكلة للمستخدمين وخطرًا أمنيًا للمؤسسات' 
   },
-  'services.pam.title': { en: 'Privilege Access Management (PAM)', ar: 'إدارة الوصول المميز (PAM)' },
+  'services.pam.title': { en: 'Privilege Access Management (PAM)', ar: 'إدارة الوصول المميز' },
   'services.pam.description': { 
     en: "Securing access to sensitive systems and data is critical in today's cybersecurity landscape, and that's where Privilege Access Management (PAM) comes in", 
-    ar: 'تأمين الوصول إلى الأنظمة والبيانات الحساسة أمر بالغ الأهمية في مشهد الأمن السيبراني اليوم، وهنا يأتي دور إدارة الوصول المميز (PAM)' 
+    ar: 'تأمين الوصول إلى الأنظمة والبيانات الحساسة أمر بالغ الأهمية في مشهد الأمن السيبراني اليوم، وهنا يأتي دور إدارة الوصول المميز' 
   },
   'services.log.title': { en: 'Log Management', ar: 'إدارة السجلات' },
   'services.log.description': { 
     en: "Managing logs is a critical aspect of any organization's cybersecurity and compliance strategy", 
     ar: 'إدارة السجلات جانب حاسم من استراتيجية الأمن السيبراني والامتثال لأي مؤسسة' 
   },
-  'services.mfa.title': { en: 'Multi-Factor Authentication (MFA)', ar: 'المصادقة متعددة العوامل (MFA)' },
+  'services.mfa.title': { en: 'Multi-Factor Authentication (MFA)', ar: 'المصادقة متعددة العوامل' },
   'services.mfa.description': { 
     en: "In today's digital world, passwords alone are no longer enough to secure sensitive data and systems", 
     ar: 'في العالم الرقمي اليوم، لم تعد كلمات المرور وحدها كافية لتأمين البيانات والأنظمة الحساسة' 
@@ -223,7 +223,7 @@ export const translations: Translations = {
 
   // Service Card Features
   'service.iam.feature1': { en: 'Centralized user identity management', ar: 'إدارة هوية المستخدم المركزية' },
-  'service.iam.feature2': { en: 'Role-based access control (RBAC)', ar: 'التحكم في الوصول على أساس الدور (RBAC)' },
+  'service.iam.feature2': { en: 'Role-based access control (RBAC)', ar: 'التحكم في الوصول على أساس الدور' },
   'service.iam.feature3': { en: 'Automated provisioning and deprovisioning', ar: 'التوفير وإلغاء التوفير الآلي' },
   'service.iam.feature4': { en: 'Compliance reporting and audit trails', ar: 'تقارير الامتثال ومسارات التدقيق' },
   'service.iam.feature5': { en: 'Integration with existing directories', ar: 'التكامل مع الأدلة الحالية' },
@@ -231,7 +231,7 @@ export const translations: Translations = {
   'service.sso.feature1': { en: 'One-click access to all applications', ar: 'وصول بنقرة واحدة إلى جميع التطبيقات' },
   'service.sso.feature2': { en: 'Reduced password fatigue', ar: 'تقليل إرهاق كلمة المرور' },
   'service.sso.feature3': { en: 'Enhanced security with centralized authentication', ar: 'أمان محسّن مع مصادقة مركزية' },
-  'service.sso.feature4': { en: 'Support for SAML, OAuth, and OpenID Connect', ar: 'دعم SAML و OAuth و OpenID Connect' },
+  'service.sso.feature4': { en: 'Support for SAML, OAuth, and OpenID Connect', ar: 'دعم بروتوكولات المصادقة القياسية' },
   'service.sso.feature5': { en: 'Seamless integration with cloud and on-premise apps', ar: 'تكامل سلس مع التطبيقات السحابية والمحلية' },
 
   'service.pam.feature1': { en: 'Secure privileged account management', ar: 'إدارة آمنة للحسابات المميزة' },
@@ -244,9 +244,9 @@ export const translations: Translations = {
   'service.log.feature2': { en: 'Real-time log analysis and alerting', ar: 'تحليل السجلات والتنبيه في الوقت الفعلي' },
   'service.log.feature3': { en: 'Advanced search and filtering capabilities', ar: 'قدرات بحث وتصفية متقدمة' },
   'service.log.feature4': { en: 'Compliance-ready retention policies', ar: 'سياسات الاحتفاظ الجاهزة للامتثال' },
-  'service.log.feature5': { en: 'Integration with SIEM platforms', ar: 'التكامل مع منصات SIEM' },
+  'service.log.feature5': { en: 'Integration with SIEM platforms', ar: 'التكامل مع منصات إدارة الأحداث الأمنية' },
 
-  'service.mfa.feature1': { en: 'Multiple authentication methods (SMS, email, app)', ar: 'طرق مصادقة متعددة (SMS، البريد الإلكتروني، التطبيق)' },
+  'service.mfa.feature1': { en: 'Multiple authentication methods (SMS, email, app)', ar: 'طرق مصادقة متعددة (الرسائل النصية، البريد الإلكتروني، التطبيق)' },
   'service.mfa.feature2': { en: 'Biometric authentication support', ar: 'دعم المصادقة البيومترية' },
   'service.mfa.feature3': { en: 'Adaptive authentication based on risk', ar: 'مصادقة تكيفية بناءً على المخاطر' },
   'service.mfa.feature4': { en: 'Easy user enrollment and management', ar: 'تسجيل وإدارة المستخدمين بسهولة' },
@@ -292,21 +292,21 @@ export const translations: Translations = {
   'about.faqs.highlight': { en: 'Questions', ar: '' },
   'about.faqs.subtitle': { en: 'Learn more about our comprehensive cybersecurity solutions and services', ar: 'تعرف على المزيد حول حلولنا وخدماتنا الشاملة للأمن السيبراني' },
   'about.faqs.secureAccess.question': { en: 'Secure Access & Identity', ar: 'الوصول الآمن والهوية' },
-  'about.faqs.secureAccess.answer1': { en: 'Implement robust Multi-Factor Authentication (MFA) with Symantec VIP (2FA)', ar: 'تنفيذ المصادقة متعددة العوامل (MFA) القوية مع Symantec VIP (2FA)' },
-  'about.faqs.secureAccess.answer2': { en: 'Leverage Symantec Web Protection Suite (WPS) for secure web browsing', ar: 'الاستفادة من مجموعة حماية الويب Symantec (WPS) لتصفح الويب الآمن' },
-  'about.faqs.secureAccess.answer3': { en: 'Secure your network perimeter with next-generation firewalls (NGFW) from Palo Alto Networks', ar: 'تأمين محيط شبكتك بجدران الحماية من الجيل التالي (NGFW) من Palo Alto Networks' },
+  'about.faqs.secureAccess.answer1': { en: 'Implement robust Multi-Factor Authentication (MFA) with Symantec VIP (2FA)', ar: 'تنفيذ المصادقة متعددة العوامل القوية مع Symantec VIP' },
+  'about.faqs.secureAccess.answer2': { en: 'Leverage Symantec Web Protection Suite (WPS) for secure web browsing', ar: 'الاستفادة من مجموعة حماية الويب Symantec لتصفح الويب الآمن' },
+  'about.faqs.secureAccess.answer3': { en: 'Secure your network perimeter with next-generation firewalls (NGFW) from Palo Alto Networks', ar: 'تأمين محيط شبكتك بجدران الحماية من الجيل التالي من Palo Alto Networks' },
   'about.faqs.threatDetection.question': { en: 'Threat Detection & Response', ar: 'اكتشاف التهديدات والاستجابة' },
   'about.faqs.threatDetection.answer1': { en: 'Gain comprehensive threat detection and response with Palo Alto Networks Cortex XDR and Cortex XSOAR', ar: 'احصل على اكتشاف واستجابة شاملة للتهديدات مع Palo Alto Networks Cortex XDR و Cortex XSOAR' },
   'about.faqs.threatDetection.answer2': { en: 'Secure your cloud environment with Symantec CloudSOC CASB', ar: 'أمّن بيئتك السحابية مع Symantec CloudSOC CASB' },
   'about.faqs.endpointSecurity.question': { en: 'Endpoint Security', ar: 'أمن نقاط النهاية' },
-  'about.faqs.endpointSecurity.answer1': { en: 'Protect your devices from malware and advanced threats with Symantec Endpoint Protection (SEP) and Endpoint Detection and Response (EDR)', ar: 'احمِ أجهزتك من البرامج الضارة والتهديدات المتقدمة مع Symantec Endpoint Protection (SEP) واكتشاف نقاط النهاية والاستجابة (EDR)' },
-  'about.faqs.endpointSecurity.answer2': { en: 'Ensure data privacy with Symantec Endpoint Encryption (PGP)', ar: 'ضمان خصوصية البيانات مع تشفير نقاط النهاية Symantec (PGP)' },
-  'about.faqs.endpointSecurity.answer3': { en: 'Fortify endpoint security with TrilleX HX and Email Security (EX)', ar: 'تعزيز أمن نقاط النهاية مع TrilleX HX وأمن البريد الإلكتروني (EX)' },
+  'about.faqs.endpointSecurity.answer1': { en: 'Protect your devices from malware and advanced threats with Symantec Endpoint Protection (SEP) and Endpoint Detection and Response (EDR)', ar: 'احمِ أجهزتك من البرامج الضارة والتهديدات المتقدمة مع Symantec Endpoint Protection واكتشاف نقاط النهاية والاستجابة' },
+  'about.faqs.endpointSecurity.answer2': { en: 'Ensure data privacy with Symantec Endpoint Encryption (PGP)', ar: 'ضمان خصوصية البيانات مع تشفير نقاط النهاية Symantec' },
+  'about.faqs.endpointSecurity.answer3': { en: 'Fortify endpoint security with TrilleX HX and Email Security (EX)', ar: 'تعزيز أمن نقاط النهاية مع TrilleX HX وأمن البريد الإلكتروني' },
   'about.faqs.dataSecurity.question': { en: 'Data Security & Compliance', ar: 'أمن البيانات والامتثال' },
-  'about.faqs.dataSecurity.answer1': { en: 'Prevent data breaches with Symantec Data Loss Prevention (DLP)', ar: 'منع اختراقات البيانات مع Symantec Data Loss Prevention (DLP)' },
-  'about.faqs.dataSecurity.answer2': { en: 'Enforce data security policies with TrilleX Network Security (NX) and Central Management System (CMS)', ar: 'فرض سياسات أمن البيانات مع TrilleX Network Security (NX) ونظام الإدارة المركزية (CMS)' },
+  'about.faqs.dataSecurity.answer1': { en: 'Prevent data breaches with Symantec Data Loss Prevention (DLP)', ar: 'منع اختراقات البيانات مع Symantec Data Loss Prevention' },
+  'about.faqs.dataSecurity.answer2': { en: 'Enforce data security policies with TrilleX Network Security (NX) and Central Management System (CMS)', ar: 'فرض سياسات أمن البيانات مع TrilleX Network Security ونظام الإدارة المركزية' },
   'about.faqs.emailSecurity.question': { en: 'Email Security', ar: 'أمن البريد الإلكتروني' },
-  'about.faqs.emailSecurity.answer1': { en: 'Block phishing attempts and malware with Symantec Email Security.cloud and TrilleX Email Threat Protection (ETP)', ar: 'حظر محاولات التصيد والبرامج الضارة مع Symantec Email Security.cloud و TrilleX Email Threat Protection (ETP)' },
+  'about.faqs.emailSecurity.answer1': { en: 'Block phishing attempts and malware with Symantec Email Security.cloud and TrilleX Email Threat Protection (ETP)', ar: 'حظر محاولات التصيد والبرامج الضارة مع Symantec Email Security.cloud و TrilleX Email Threat Protection' },
   'about.faqs.networkManagement.question': { en: 'Network Management & Monitoring', ar: 'إدارة الشبكة والمراقبة' },
   'about.faqs.networkManagement.answer1': { en: 'Gain real-time insights into network performance with SolarWinds Network Performance Management (NPM), Network Traffic Analyzer (NTA), and Network Configuration Manager (NCM)', ar: 'احصل على رؤى في الوقت الفعلي حول أداء الشبكة مع SolarWinds Network Performance Management (NPM) و Network Traffic Analyzer (NTA) و Network Configuration Manager (NCM)' },
   'about.faqs.networkManagement.answer2': { en: 'Optimize database performance with SolarWinds Database Performance Analyzer (DPA)', ar: 'تحسين أداء قاعدة البيانات مع SolarWinds Database Performance Analyzer (DPA)' },
@@ -318,8 +318,8 @@ export const translations: Translations = {
   'about.faqs.additional.answer1': { en: 'Enable secure remote access with Citrix solutions like Application Delivery Controller (ADC), Virtual Desktop Infrastructure (VDI), and VPN Gateway', ar: 'تمكين الوصول عن بُعد الآمن مع حلول Citrix مثل Application Delivery Controller (ADC) و Virtual Desktop Infrastructure (VDI) و VPN Gateway' },
   'about.faqs.additional.answer2': { en: 'Protect against file-based threats with TrilleX File Protect (FX)', ar: 'الحماية من التهديدات القائمة على الملفات مع TrilleX File Protect (FX)' },
   'about.faqs.additional.answer3': { en: 'Perform advanced malware analysis with TrilleX Malware Analysis (AX)', ar: 'إجراء تحليل متقدم للبرامج الضارة مع TrilleX Malware Analysis (AX)' },
-  'about.faqs.additional.answer4': { en: 'Simplify user and device management with Ivanti Security Control (i-Sec)', ar: 'تبسيط إدارة المستخدم والجهاز مع Ivanti Security Control (i-Sec)' },
-  'about.faqs.additional.answer5': { en: 'Deliver application security with F5 BIG-IP Local Traffic Manager and Web Application Firewall (WAF)', ar: 'تقديم أمان التطبيقات مع F5 BIG-IP Local Traffic Manager و Web Application Firewall (WAF)' },
+  'about.faqs.additional.answer4': { en: 'Simplify user and device management with Ivanti Security Control (i-Sec)', ar: 'تبسيط إدارة المستخدم والجهاز مع Ivanti Security Control' },
+  'about.faqs.additional.answer5': { en: 'Deliver application security with F5 BIG-IP Local Traffic Manager and Web Application Firewall (WAF)', ar: 'تقديم أمان التطبيقات مع F5 BIG-IP Local Traffic Manager وجدار حماية تطبيقات الويب' },
   'about.faqs.additional.answer6': { en: 'Enhance file transfer security with OPSWAT MetaDefender and MetaAccess', ar: 'تعزيز أمان نقل الملفات مع OPSWAT MetaDefender و MetaAccess' },
 
   // Clients Page
