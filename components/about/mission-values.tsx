@@ -12,24 +12,24 @@ export function MissionValues() {
     title: t('about.mvv.mission.title'),
     description: t('about.mvv.mission.description'),
     icon: Target,
-    gradient: 'from-primary via-cyan-400 to-primary',
-    bgGradient: 'from-primary/5 via-cyan-400/5 to-primary/5'
+    gradient: 'from-[#50af9b] to-[#3b9482]',
+    bgGradient: 'from-[#50af9b]/5 to-[#3b9482]/5'
   }
 
   const vision = {
     title: t('about.mvv.vision.title'),
     description: t('about.mvv.vision.description'),
     icon: Eye,
-    gradient: 'from-cyan-500 via-teal-400 to-cyan-500',
-    bgGradient: 'from-cyan-500/5 via-teal-400/5 to-cyan-500/5'
+    gradient: 'from-[#60c9b3] to-[#50af9b]',
+    bgGradient: 'from-[#60c9b3]/5 to-[#50af9b]/5'
   }
 
   const values = {
     title: t('about.mvv.values.title'),
     description: t('about.mvv.values.description'),
     icon: Heart,
-    gradient: 'from-teal-500 via-cyan-500 to-primary',
-    bgGradient: 'from-teal-500/5 via-cyan-500/5 to-primary/5'
+    gradient: 'from-[#70d9c3] to-[#60c9b3]',
+    bgGradient: 'from-[#70d9c3]/5 to-[#60c9b3]/5'
   }
 
   return (

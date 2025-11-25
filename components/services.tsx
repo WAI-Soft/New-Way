@@ -13,37 +13,37 @@ export function Services() {
       icon: Key,
       titleKey: 'services.iam.title',
       descriptionKey: 'services.iam.description',
-      gradient: 'from-blue-500 to-cyan-500',
+      gradient: 'from-[#50af9b] to-[#3b9482]',
     },
     {
       icon: Shield,
       titleKey: 'services.sso.title',
       descriptionKey: 'services.sso.description',
-      gradient: 'from-cyan-500 to-teal-500',
+      gradient: 'from-[#60c9b3] to-[#50af9b]',
     },
     {
       icon: Lock,
       titleKey: 'services.pam.title',
       descriptionKey: 'services.pam.description',
-      gradient: 'from-teal-500 to-green-500',
+      gradient: 'from-[#70d9c3] to-[#60c9b3]',
     },
     {
       icon: FileText,
       titleKey: 'services.log.title',
       descriptionKey: 'services.log.description',
-      gradient: 'from-green-500 to-emerald-500',
+      gradient: 'from-[#50af9b] to-[#70d9c3]',
     },
     {
       icon: Smartphone,
       titleKey: 'services.mfa.title',
       descriptionKey: 'services.mfa.description',
-      gradient: 'from-emerald-500 to-cyan-500',
+      gradient: 'from-[#3b9482] to-[#60c9b3]',
     },
     {
       icon: ShieldCheck,
       titleKey: 'services.cybersecurity.title',
       descriptionKey: 'services.cybersecurity.description',
-      gradient: 'from-cyan-500 to-blue-500',
+      gradient: 'from-[#60c9b3] to-[#3b9482]',
     },
   ]
 
