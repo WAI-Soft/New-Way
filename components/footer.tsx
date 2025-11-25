@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react'
+import { Logo } from '@/components/logo'
 import { useLanguage } from '@/lib/language-context'
 
 export function Footer() {
@@ -16,13 +16,7 @@ export function Footer() {
           {/* Company Info */}
           <div>
             <Link href="/" className="flex items-center mb-4">
-              <Image 
-                src="/logo.png" 
-                alt="New Way Solutions" 
-                width={140}
-                height={47}
-                className="h-12 w-auto"
-              />
+              <Logo />
             </Link>
             <p className="text-sm text-foreground/60 leading-relaxed">
               {t('footer.description')}

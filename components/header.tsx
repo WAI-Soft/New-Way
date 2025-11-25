@@ -3,9 +3,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Image from 'next/image'
 import { Menu, X, Home, Briefcase, Info, Users, Handshake, Mail } from 'lucide-react'
 import { LanguageToggle } from '@/components/language-toggle'
+import { Logo } from '@/components/logo'
 import { useLanguage } from '@/lib/language-context'
 
 export function Header() {
@@ -30,14 +30,7 @@ export function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8 relative">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 me-8">
-          <Image 
-            src="/logo.png" 
-            alt="New Way Solutions" 
-            width={200}
-            height={70}
-            className="h-14 w-auto sm:h-16"
-            priority
-          />
+          <Logo />
         </Link>
 
         {/* Desktop Navigation */}
