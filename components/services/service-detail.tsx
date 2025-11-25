@@ -67,7 +67,7 @@ export function ServiceDetail({ slug }: ServiceDetailProps) {
           isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}>
           <div className="relative max-w-4xl mx-auto h-[300px] rounded-2xl overflow-hidden border border-border/40 shadow-2xl">
-            <div className={language === 'ar' ? 'absolute inset-0 -scale-x-100' : 'absolute inset-0'}>
+            <div className="absolute inset-0">
               <Image
                 src={service.image}
                 alt={service.title}
@@ -80,12 +80,12 @@ export function ServiceDetail({ slug }: ServiceDetailProps) {
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
             
             {/* Title Overlay */}
-            <div className={`absolute bottom-0 p-6 ${language === 'ar' ? 'right-0' : 'left-0'}`}>
-              <div className={`flex items-center gap-3 ${language === 'ar' ? 'flex-row-reverse' : 'flex-row'}`}>
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.gradient} flex items-center justify-center shadow-xl backdrop-blur-sm`}>
+            <div className="absolute bottom-0 inset-x-0 p-6">
+              <div className="flex items-center justify-center gap-3 w-full">
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${service.gradient} flex items-center justify-center shadow-xl backdrop-blur-sm flex-shrink-0`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h2 className={`text-xl sm:text-2xl font-bold text-white drop-shadow-lg ${language === 'ar' ? 'text-right' : 'text-left'}`}>
+                <h2 className="text-xl sm:text-2xl font-bold text-white drop-shadow-lg whitespace-nowrap">
                   {serviceTranslation ? getTranslation(serviceTranslation.title) : service.title}
                 </h2>
               </div>
