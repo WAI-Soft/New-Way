@@ -59,14 +59,14 @@ export function WorkProcess() {
         </div>
 
         {/* Process Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative md:items-stretch">
           {/* Connection Lines - Hidden on mobile */}
           <div className="hidden md:block absolute top-1/4 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
           {processes.map((process, idx) => (
             <div
               key={idx}
-              className={`relative transition-all duration-1000`}
+              className={`relative transition-all duration-1000 flex`}
               style={{ 
                 transitionDelay: `${process.delay}ms`,
                 opacity: isVisible ? 1 : 0,
@@ -74,12 +74,12 @@ export function WorkProcess() {
               }}
             >
               {/* Card */}
-              <div className="relative group">
+              <div className="relative group flex-1 flex flex-col">
                 {/* Gradient Border Effect */}
                 <div className={`absolute -inset-0.5 bg-gradient-to-r ${process.color} rounded-2xl opacity-30 group-hover:opacity-50 transition-opacity blur`} />
                 
                 {/* Card Content */}
-                <div className="relative bg-card border border-border/40 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 h-full">
+                <div className="relative bg-card border border-border/40 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 flex flex-col h-full">
                   {/* Phase Number */}
                   <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r ${process.color} text-white font-bold text-xl mb-6 relative z-10`}>
                     {t(process.phaseKey)}
@@ -96,7 +96,7 @@ export function WorkProcess() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-foreground/60 leading-relaxed">
+                  <p className="text-foreground/60 leading-relaxed flex-grow">
                     {t(process.descriptionKey)}
                   </p>
 

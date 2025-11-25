@@ -139,10 +139,28 @@
   }
 }
 
+/* Font Support - DIN for English, Cairo for Arabic */
+body {
+  font-family: var(--font-din), sans-serif;
+}
+
+[dir="ltr"],
+[dir="ltr"] *,
+html[lang="en"],
+html[lang="en"] * {
+  font-family: var(--font-din), sans-serif !important;
+}
+
+[dir="rtl"],
+[dir="rtl"] *,
+html[lang="ar"],
+html[lang="ar"] * {
+  font-family: var(--font-cairo), sans-serif !important;
+}
+
 /* RTL Support Styles */
 [dir="rtl"] {
   direction: rtl;
-  font-family: var(--font-cairo), sans-serif;
 }
 
 [dir="ltr"] {

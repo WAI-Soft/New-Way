@@ -1,21 +1,22 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono, Cairo } from 'next/font/google'
+import { Cairo, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
 
-const geist = Geist({ 
-  subsets: ["latin"],
-  variable: '--font-sans'
-});
-const geistMono = Geist_Mono({ 
-  subsets: ["latin"],
-  variable: '--font-mono'
-});
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-din',
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+})
+
 const cairo = Cairo({ 
   subsets: ["arabic", "latin"],
-  variable: '--font-cairo'
+  variable: '--font-cairo',
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning>
-      <body className={`${geist.variable} ${geistMono.variable} ${cairo.variable} font-sans font-medium antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${cairo.variable} font-sans font-medium antialiased`} suppressHydrationWarning>
         <LanguageProvider>
           <ThemeProvider
             attribute="class"
