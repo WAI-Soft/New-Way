@@ -75,7 +75,7 @@ export function PartnershipBenefits() {
                 <div className="bg-card border border-border/40 rounded-2xl p-8 h-full hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 group">
                   {/* Icon */}
                   <div className="mb-6">
-                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#50af9b] to-[#3b9482] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                       <Icon className="w-7 h-7 text-white" />
                     </div>
                   </div>

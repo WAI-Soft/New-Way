@@ -82,13 +82,13 @@ export function IndustriesSection() {
               >
                 <div className="group relative w-full h-full">
                   {/* Gradient border effect */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-cyan-400 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity blur" />
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#50af9b] to-[#3b9482] rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity blur" />
                   
                   {/* Card content */}
                   <div className="relative bg-card border border-border/40 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 h-full">
                     {/* Icon */}
                     <div className="mb-4">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-primary to-cyan-400 flex items-center justify-center">
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-r from-[#50af9b] to-[#3b9482] flex items-center justify-center">
                         <Icon className="w-7 h-7 text-white" />
                       </div>
                     </div>

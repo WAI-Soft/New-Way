@@ -52,13 +52,13 @@ export function CompanyOverview() {
           >
             <div className="relative">
               {/* Gradient background effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-cyan-400/20 rounded-2xl blur-2xl" />
+              <div className="absolute -inset-4 bg-gradient-to-r from-[#50af9b]/20 to-[#3b9482]/20 rounded-2xl blur-2xl" />
               
               {/* Card with stats or visual */}
               <div className="relative bg-card border border-border/40 rounded-2xl p-8">
                 <div className="space-y-8">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-primary to-cyan-400 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-[#50af9b] to-[#3b9482] flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
@@ -72,7 +72,7 @@ export function CompanyOverview() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-primary to-cyan-400 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-[#60c9b3] to-[#50af9b] flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
@@ -86,7 +86,7 @@ export function CompanyOverview() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-primary to-cyan-400 flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-[#70d9c3] to-[#60c9b3] flex items-center justify-center flex-shrink-0">
                       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>

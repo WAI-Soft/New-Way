@@ -70,7 +70,7 @@ export function PartnerCategory() {
                     {partners.length} {t('partners.category.partnersCount')}
                   </span>
                 </div>
-                <div className="h-1 w-24 bg-gradient-to-r from-primary to-cyan-400 rounded-full" />
+                <div className="h-1 w-24 bg-gradient-to-r from-[#50af9b] to-[#3b9482] rounded-full" />
               </div>
 
               {/* Partners Grid */}

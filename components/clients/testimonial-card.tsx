@@ -13,7 +13,7 @@ export function TestimonialCard({ quote, author, position, company }: Testimonia
   return (
     <div className="group relative">
       {/* Gradient border effect */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-cyan-400 rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity blur" />
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-[#50af9b] to-[#3b9482] rounded-2xl opacity-20 group-hover:opacity-40 transition-opacity blur" />
       
       {/* Card content */}
       <div className="relative bg-card border-l-4 border-l-primary border-r border-t border-b border-border/40 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 h-full">
