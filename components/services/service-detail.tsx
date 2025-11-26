@@ -153,7 +153,7 @@ export function ServiceDetail({ slug }: ServiceDetailProps) {
               {service.addingValue.benefits.map((benefit, idx) => {
                 const translatedBenefit = serviceTranslation?.addingValue.benefits[idx]
                 return (
-                  <li key={idx} className="flex items-start gap-3">
+                  <li key={idx} className="flex items-start gap-1.5">
                     <CheckCircle className={`w-6 h-6 flex-shrink-0 mt-0.5 text-primary`} />
                     <span className="text-foreground/80 text-lg leading-relaxed">
                       {translatedBenefit ? getTranslation(translatedBenefit) : benefit}

@@ -1,0 +1,106 @@
+{
+  "pages": [
+    {
+      "id": "home",
+      "path": "/",
+      "title": {
+        "en": "Home",
+        "ar": "الرئيسية"
+      },
+      "description": {
+        "en": "Enterprise solutions that deliver exceptional results",
+        "ar": "حلول مؤسسية تحقق نتائج استثنائية"
+      },
+      "icon": "Home",
+      "category": "main",
+      "order": 1,
+      "tags": ["main", "landing", "hero"],
+      "relatedPages": ["services", "about", "contact"]
+    },
+    {
+      "id": "services",
+      "path": "/services",
+      "title": {
+        "en": "Services",
+        "ar": "الخدمات"
+      },
+      "description": {
+        "en": "Comprehensive security services designed to protect your enterprise and empower your team",
+        "ar": "خدمات أمنية شاملة مصممة لحماية مؤسستك وتمكين فريقك"
+      },
+      "icon": "Briefcase",
+      "category": "main",
+      "order": 2,
+      "tags": ["main", "services", "security"],
+      "relatedPages": ["about", "contact", "partners"]
+    },
+    {
+      "id": "about",
+      "path": "/about",
+      "title": {
+        "en": "About",
+        "ar": "من نحن"
+      },
+      "description": {
+        "en": "Transforming enterprises with innovative solutions and unparalleled expertise",
+        "ar": "تحويل المؤسسات بحلول مبتكرة وخبرة لا مثيل لها"
+      },
+      "icon": "Info",
+      "category": "main",
+      "order": 3,
+      "tags": ["main", "company", "mission"],
+      "relatedPages": ["services", "clients", "partners"]
+    },
+    {
+      "id": "clients",
+      "path": "/clients",
+      "title": {
+        "en": "Clients",
+        "ar": "العملاء"
+      },
+      "description": {
+        "en": "Trusted by leading organizations across government, healthcare, finance, and technology sectors",
+        "ar": "موثوق به من قبل المؤسسات الرائدة عبر قطاعات الحكومة والرعاية الصحية والمالية والتكنولوجيا"
+      },
+      "icon": "Users",
+      "category": "main",
+      "order": 4,
+      "tags": ["main", "clients", "testimonials", "industries"],
+      "relatedPages": ["about", "services", "partners"]
+    },
+    {
+      "id": "partners",
+      "path": "/partners",
+      "title": {
+        "en": "Partners",
+        "ar": "الشركاء"
+      },
+      "description": {
+        "en": "Collaborating with industry leaders to deliver best-in-class solutions",
+        "ar": "التعاون مع قادة الصناعة لتقديم حلول من الدرجة الأولى"
+      },
+      "icon": "Handshake",
+      "category": "main",
+      "order": 5,
+      "tags": ["main", "partners", "technology", "collaboration"],
+      "relatedPages": ["services", "about", "clients"]
+    },
+    {
+      "id": "contact",
+      "path": "/contact",
+      "title": {
+        "en": "Contact",
+        "ar": "اتصل بنا"
+      },
+      "description": {
+        "en": "Have questions about our services? We're here to help. Reach out to us and let's discuss how we can secure your business.",
+        "ar": "هل لديك أسئلة حول خدماتنا؟ نحن هنا للمساعدة. تواصل معنا ودعنا نناقش كيف يمكننا تأمين عملك."
+      },
+      "icon": "Mail",
+      "category": "main",
+      "order": 6,
+      "tags": ["main", "contact", "support", "inquiry"],
+      "relatedPages": ["services", "about"]
+    }
+  ]
+}

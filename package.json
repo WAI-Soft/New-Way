@@ -12,7 +12,11 @@
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
     "test:report": "playwright show-report test-results/html-report",
-    "test:codegen": "playwright codegen http://localhost:3000"
+    "test:codegen": "playwright codegen http://localhost:3000",
+    "test:unit": "jest",
+    "test:unit:watch": "jest --watch",
+    "test:unit:coverage": "jest --coverage",
+    "test:properties": "jest --testMatch='**/*.property.test.ts'"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -67,14 +71,19 @@
     "zod": "3.25.76"
   },
   "devDependencies": {
+    "@fast-check/jest": "^2.1.1",
     "@playwright/test": "^1.56.1",
     "@tailwindcss/postcss": "^4.1.9",
+    "@types/jest": "^30.0.0",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "fast-check": "^4.3.0",
+    "jest": "^30.2.0",
     "playwright": "^1.56.1",
     "postcss": "^8.5",
     "tailwindcss": "^4.1.9",
+    "ts-jest": "^29.4.5",
     "tw-animate-css": "1.3.3",
     "typescript": "^5"
   }
