@@ -107,7 +107,7 @@ export const servicesTranslations: Record<string, ServiceTranslations> = {
     closingStatement: { en: "Ready to simplify authentication and improve security? Contact New Way today to learn how our SSO solution can transform your user experience.", ar: 'هل أنت مستعد لتبسيط المصادقة وتحسين الأمان؟ اتصل بـ New Way اليوم لمعرفة كيف يمكن لحل SSO الخاص بنا تحويل تجربة المستخدم لديك.' }
   },
   'privilege-access-management': {
-    title: { en: 'Privilege Access Management (PAM)', ar: 'إدارة الوصول المميز (PAM)' },
+    title: { en: 'Privilege Access Management (PAM)', ar: 'إدارة الوصول المميز' },
     description: { en: "Securing access to sensitive systems and data is critical in today's cybersecurity landscape. Our PAM solutions protect privileged accounts and prevent unauthorized access to critical resources.", ar: 'يعد تأمين الوصول إلى الأنظمة والبيانات الحساسة أمرًا بالغ الأهمية في مشهد الأمن السيبراني اليوم. تحمي حلول PAM الخاصة بنا الحسابات المميزة وتمنع الوصول غير المصرح به إلى الموارد الحيوية.' },
     fullDescription: { en: "Privileged accounts are the keys to your kingdom. Our PAM solution ensures these critical accounts are secured, monitored, and audited. We help you control who has access to what, when, and why, reducing the risk of insider threats and external attacks.", ar: 'الحسابات المميزة هي مفاتيح مملكتك. يضمن حل PAM الخاص بنا تأمين هذه الحسابات الحيوية ومراقبتها وتدقيقها. نساعدك في التحكم في من لديه حق الوصول إلى ماذا ومتى ولماذا، مما يقلل من مخاطر التهديدات الداخلية والهجمات الخارجية.' },
     howItWorks: {
@@ -187,7 +187,7 @@ export const servicesTranslations: Record<string, ServiceTranslations> = {
     closingStatement: { en: "Get complete visibility into your IT environment with New Way's log management solution. Contact us to get started.", ar: 'احصل على رؤية كاملة لبيئة تكنولوجيا المعلومات الخاصة بك باستخدام حل إدارة السجلات من New Way. اتصل بنا للبدء.' }
   },
   'multi-factor-authentication': {
-    title: { en: 'Multi-Factor Authentication (MFA)', ar: 'المصادقة متعددة العوامل (MFA)' },
+    title: { en: 'Multi-Factor Authentication (MFA)', ar: 'المصادقة متعددة العوامل' },
     description: { en: "In today's digital world, passwords alone are no longer enough to secure sensitive data and systems. Our MFA solutions add an extra layer of security to protect against unauthorized access.", ar: 'في عالم اليوم الرقمي، لم تعد كلمات المرور وحدها كافية لتأمين البيانات والأنظمة الحساسة. تضيف حلول MFA الخاصة بنا طبقة إضافية من الأمان للحماية من الوصول غير المصرح به.' },
     fullDescription: { en: "Multi-Factor Authentication adds critical security layers beyond just passwords. Our MFA solution supports various authentication methods including mobile apps, SMS, email, and biometrics, providing flexibility while maintaining strong security.", ar: 'تضيف المصادقة متعددة العوامل طبقات أمان حاسمة تتجاوز كلمات المرور فقط. يدعم حل MFA الخاص بنا طرق مصادقة متنوعة (الإرسال النصية، البريد الإلكتروني، التطبيق)' },
     howItWorks: {
